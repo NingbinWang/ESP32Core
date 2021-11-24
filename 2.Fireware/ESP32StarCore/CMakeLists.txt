@@ -6,3 +6,4 @@ list(APPEND EXTRA_COMPONENT_DIRS lib)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(ESP32StarCore)
+idf_build_set_property(COMPILE_OPTIONS "-DESPIDF" APPEND)
