@@ -1,5 +1,4 @@
 #include "platform_esp32.h"
-//注意初始化的函数只能用一个
 #ifdef _ESP32_HAL_BUILD_
 static int protocal_spi_send(unsigned char *buf, unsigned int len)
 {
