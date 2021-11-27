@@ -12,8 +12,11 @@ void Port_Init()
     /* 屏幕初始化 */
     screen.begin();
     screen.setRotation(0);
-    screen.fillScreen(TFT_BLUE);
-    Serial.println("Port_Init\n");
+    screen.fillScreen(TFT_BLACK);
+
+    /* lvgl初始化 */
+    lv_init();
+    lv_port_disp_init(&screen);
      /* 背光渐亮 */
     //HAL::Backlight_SetGradual(500, 1000);
     

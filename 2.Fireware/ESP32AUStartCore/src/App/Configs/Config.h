@@ -6,6 +6,7 @@
 #define CONFIG_SCREEN_SCK_PIN       18
 #define CONFIG_SCREEN_MOSI_PIN      23
 #define CONFIG_SCREEN_BLK_PIN       12
+#define CONFIG_SCREEN_MISO_PIN      19
 
 #define CONFIG_SCREEN_HOR_RES       240
 #define CONFIG_SCREEN_VER_RES       320

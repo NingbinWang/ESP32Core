@@ -31,7 +31,7 @@ void HAL::Backlight_Init()
   * @param  target:目标亮度(0~1000 -> 0~100%)
   * @retval 无
   */
- /*
+
 void HAL::Backlight_SetGradual(uint32_t target, uint16_t time)
 {
     lv_anim_t a;
@@ -43,7 +43,7 @@ void HAL::Backlight_SetGradual(uint32_t target, uint16_t time)
 
     lv_anim_start(&a);
 }
-*/
+
 /**
   * @brief  获取背光亮度
   * @param  无
