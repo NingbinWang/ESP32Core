@@ -26,10 +26,7 @@
   <Import Project="LVGL.Demonstrations.vcxitems" />
   <Import Project="LVGL.Drivers.vcxitems" />
   <ItemGroup>
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.h" />
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.h" />
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\Page.h" />
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Version.h" />
+    <ClInclude Include="App\App.h" />
     <ClInclude Include="HAL\HAL.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
@@ -45,10 +42,11 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.cpp" />
-    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.cpp" />
+    <ClCompile Include="App\App.cpp" />
     <ClCompile Include="HAL\HAL.cpp" />
-    <ClCompile Include="LVGL.Simulator.cpp" />
+    <ClCompile Include="LVGL.Simulator.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\99.OpenPorject\github\ESP32Core\3.Software\lv_sim_visual_studio\LVGL.Simulator\App;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />

@@ -6,20 +6,11 @@
   <ItemGroup>
     <ClInclude Include="lv_conf.h" />
     <ClInclude Include="lv_drv_conf.h" />
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.h">
-      <Filter>APP</Filter>
+    <ClInclude Include="App\App.h">
+      <Filter>App</Filter>
     </ClInclude>
     <ClInclude Include="HAL\HAL.h">
       <Filter>HAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Version.h">
-      <Filter>APP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.h">
-      <Filter>APP\Pages</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\Page.h">
-      <Filter>APP\Pages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -34,14 +25,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LVGL.Simulator.cpp" />
-    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.cpp">
-      <Filter>APP</Filter>
+    <ClCompile Include="App\App.cpp">
+      <Filter>App</Filter>
     </ClCompile>
     <ClCompile Include="HAL\HAL.cpp">
       <Filter>HAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.cpp">
-      <Filter>APP\Pages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,17 +42,11 @@
     <None Include="freetype.props" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="APP">
-      <UniqueIdentifier>{cf781f3d-2c91-4331-96fd-aa91504d1618}</UniqueIdentifier>
+    <Filter Include="App">
+      <UniqueIdentifier>{f1488816-0422-498a-86d7-7791e6313fee}</UniqueIdentifier>
     </Filter>
     <Filter Include="HAL">
-      <UniqueIdentifier>{cbdfb208-0ecb-41ee-ae9f-f7465cf46e46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="APP\Utils">
-      <UniqueIdentifier>{62e8e942-4d1b-4f97-b8bb-ab860e06b2d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="APP\Pages">
-      <UniqueIdentifier>{332ee075-b868-4380-8e2f-eb925d3fcd34}</UniqueIdentifier>
+      <UniqueIdentifier>{4fe1c460-4d91-46ec-9050-28dc3604f6ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
