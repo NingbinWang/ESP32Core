@@ -12,6 +12,39 @@
     <ClInclude Include="HAL\HAL.h">
       <Filter>HAL</Filter>
     </ClInclude>
+    <ClInclude Include="App\Pages\StartUp\StartUpView.h">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\Page.h">
+      <Filter>App\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\AppFactory.h">
+      <Filter>App\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\PageManager\PageBase.h">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\PageManager\PageFactory.h">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\PageManager\PageManager.h">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Resources\ResourcePool.h">
+      <Filter>App\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\PageManager\ResourceManager.h">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\StatusBar\StatusBar.h">
+      <Filter>App\Pages\StatusBar</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Configs\Config.h">
+      <Filter>App\Configs</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Configs\Version.h">
+      <Filter>App\Configs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lv_demo_conf.h" />
@@ -31,6 +64,21 @@
     <ClCompile Include="HAL\HAL.cpp">
       <Filter>HAL</Filter>
     </ClCompile>
+    <ClCompile Include="App\Pages\AppFactory.cpp">
+      <Filter>App\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\StartUp\StarUp.cpp">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\StartUp\StartUpView.cpp">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\ResourcePool.cpp">
+      <Filter>App\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp">
+      <Filter>App\Pages\StatusBar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
@@ -47,6 +95,27 @@
     </Filter>
     <Filter Include="HAL">
       <UniqueIdentifier>{4fe1c460-4d91-46ec-9050-28dc3604f6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages">
+      <UniqueIdentifier>{440b74ec-20a2-4fe7-aafa-7d3f3019f104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages\StartUp">
+      <UniqueIdentifier>{45bab293-b7c5-4ef1-bbe1-45b574620816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Utils">
+      <UniqueIdentifier>{6667f83b-d62f-46a8-b8a8-167e686dcf62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Utils\PageManager">
+      <UniqueIdentifier>{81344316-23e6-47ca-ba5b-60646f2b3993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Resources">
+      <UniqueIdentifier>{532e3eef-90ca-44e5-814e-a160c7015879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages\StatusBar">
+      <UniqueIdentifier>{24711c1e-96a4-4a46-9363-63e323ca4d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Configs">
+      <UniqueIdentifier>{3c060dd0-8e6d-4c30-b1ae-561dfaa75b55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
