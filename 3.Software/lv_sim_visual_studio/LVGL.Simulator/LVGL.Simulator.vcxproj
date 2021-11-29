@@ -19,12 +19,18 @@
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization Condition="'$(Configuration)'=='Release'">MinSpace</Optimization>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\..\..\2.Fireware\ESP32AUStartCore\src\App</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="LVGL.Core.vcxitems" />
   <Import Project="LVGL.Demonstrations.vcxitems" />
   <Import Project="LVGL.Drivers.vcxitems" />
   <ItemGroup>
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.h" />
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.h" />
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\Page.h" />
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Version.h" />
+    <ClInclude Include="HAL\HAL.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +45,9 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.cpp" />
+    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.cpp" />
+    <ClCompile Include="HAL\HAL.cpp" />
     <ClCompile Include="LVGL.Simulator.cpp" />
   </ItemGroup>
   <ItemGroup>

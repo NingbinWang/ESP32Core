@@ -11,6 +11,7 @@
 #include <Windows.h>
 
 #include "resource.h"
+#include "App.h"
 
 #if _MSC_VER >= 1200
  // Disable compilation warnings.
@@ -40,8 +41,8 @@ int main()
     if (!lv_win32_init(
         GetModuleHandleW(NULL),
         SW_SHOW,
-        800,
-        480,
+        240,
+        320,
         LoadIconW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_LVGL))))
     {
         return -1;

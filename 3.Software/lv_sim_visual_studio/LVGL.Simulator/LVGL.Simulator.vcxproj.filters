@@ -6,6 +6,21 @@
   <ItemGroup>
     <ClInclude Include="lv_conf.h" />
     <ClInclude Include="lv_drv_conf.h" />
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="HAL\HAL.h">
+      <Filter>HAL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Version.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.h">
+      <Filter>APP\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\Page.h">
+      <Filter>APP\Pages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lv_demo_conf.h" />
@@ -19,6 +34,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LVGL.Simulator.cpp" />
+    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\App.cpp">
+      <Filter>APP</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\2.Fireware\ESP32AUStartCore\src\App\Pages\AppFactory.cpp">
+      <Filter>APP\Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
@@ -28,5 +52,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="freetype.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="APP">
+      <UniqueIdentifier>{cf781f3d-2c91-4331-96fd-aa91504d1618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HAL">
+      <UniqueIdentifier>{cbdfb208-0ecb-41ee-ae9f-f7465cf46e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="APP\Utils">
+      <UniqueIdentifier>{62e8e942-4d1b-4f97-b8bb-ab860e06b2d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="APP\Pages">
+      <UniqueIdentifier>{332ee075-b868-4380-8e2f-eb925d3fcd34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

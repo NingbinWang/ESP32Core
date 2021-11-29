@@ -1,6 +1,7 @@
-#ifndef _APP_H_
-#define _APP_H_
+#ifndef __APP_H
+#define __APP_H
 
+void App_Init(void);
+void App_Uninit(void);
 
-void App_Init();
 #endif

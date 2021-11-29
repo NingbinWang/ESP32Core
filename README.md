@@ -1,1 +1,2 @@
 # ESP32CORE
+此项目是用于建立一套有关ESP32的芯片的DemoBorad，用于验证支持lvgl，can等
