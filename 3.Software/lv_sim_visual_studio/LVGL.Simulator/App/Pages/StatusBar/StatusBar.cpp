@@ -7,7 +7,7 @@
 
 #define STATUS_BAR_HEIGHT 22
 
-static Account* actStatusBar;
+//static Account* actStatusBar;
 
 static void StatusBar_AnimCreate(lv_obj_t* contBatt);
 
@@ -198,18 +198,18 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     ui.satellite.label = label;
 
     /* sd card */
-    img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("sd_card"));
-    lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
-    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-    ui.imgSD = img;
+  //  img = lv_img_create(cont);
+  //  lv_img_set_src(img, Resource.GetImage("sd_card"));
+  //  lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
+  //  lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
+  //  ui.imgSD = img;
 
     /* bluetooth */
-    img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("bluetooth"));
-    lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
-    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-    ui.imgBT = img;
+   // img = lv_img_create(cont);
+    //lv_img_set_src(img, Resource.GetImage("bluetooth"));
+    //lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
+   // lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
+ //   ui.imgBT = img;
 
     /* clock */
     //label = lv_label_create(cont);
@@ -219,20 +219,20 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     //ui.labelClock = label;
 
     /* recorder */
-    label = lv_label_create(cont);
-    lv_obj_add_style(label, &style, 0);
-    lv_obj_align(label, LV_ALIGN_RIGHT_MID, -50, 0);
-    lv_label_set_text(label, "");
-    lv_obj_add_flag(label, LV_OBJ_FLAG_HIDDEN);
-    ui.labelRec = label;
+   // label = lv_label_create(cont);
+    //lv_obj_add_style(label, &style, 0);
+    //lv_obj_align(label, LV_ALIGN_RIGHT_MID, -50, 0);
+    //lv_label_set_text(label, "");
+    //lv_obj_add_flag(label, LV_OBJ_FLAG_HIDDEN);
+  //  ui.labelRec = label;
 
     /* battery */
-    img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("battery"));
-    lv_obj_align(img, LV_ALIGN_RIGHT_MID, -30, 0);
-    lv_img_t* img_ext = (lv_img_t*)img;
-    lv_obj_set_size(img, img_ext->w, img_ext->h);
-    ui.battery.img = img;
+   // img = lv_img_create(cont);
+   // lv_img_set_src(img, Resource.GetImage("battery"));
+   // lv_obj_align(img, LV_ALIGN_RIGHT_MID, -30, 0);
+  //  lv_img_t* img_ext = (lv_img_t*)img;
+    //lv_obj_set_size(img, img_ext->w, img_ext->h);
+   // ui.battery.img = img;
 
     lv_obj_t* obj = lv_obj_create(img);
     lv_obj_remove_style_all(obj);

@@ -45,6 +45,33 @@
     <ClInclude Include="App\Configs\Version.h">
       <Filter>App\Configs</Filter>
     </ClInclude>
+    <ClInclude Include="App\Pages\StartUp\StartUp.h">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\StartUp\StartUpModel.h">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\SystemInfos\SystemInfos.h">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\SystemInfos\SystemInfosModel.h">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\SystemInfos\SystemInfosView.h">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\PageManager\PM_Log.h">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\lv_ext\lv_anim_timeline_wrapper.h">
+      <Filter>App\Utils\lv_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\lv_ext\lv_label_anim_effect.h">
+      <Filter>App\Utils\lv_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Utils\lv_ext\lv_obj_ext_func.h">
+      <Filter>App\Utils\lv_ext</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lv_demo_conf.h" />
@@ -78,6 +105,96 @@
     </ClCompile>
     <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp">
       <Filter>App\Pages\StatusBar</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\StartUp\StartUpModel.cpp">
+      <Filter>App\Pages\StartUp</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Font\font_agencyb_36.c">
+      <Filter>App\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Font\font_bahnschrift_13.c">
+      <Filter>App\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Font\font_bahnschrift_17.c">
+      <Filter>App\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Font\font_bahnschrift_32.c">
+      <Filter>App\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Font\font_bahnschrift_65.c">
+      <Filter>App\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_alarm.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_compass.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_gyroscope.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_menu.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_origin_point.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_pause.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_satellite.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_start.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_stop.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_system_info.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_time_info.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Resources\Image\img_src_trip.c">
+      <Filter>App\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\SystemInfos\SystemInfos.cpp">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\SystemInfos\SystemInfosModel.cpp">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\SystemInfos\SystemInfosView.cpp">
+      <Filter>App\Pages\SystemInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\PM_Anim.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\PM_Base.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\PM_Drag.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\PM_Router.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\PM_State.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\PageManager\ResourceManager.cpp">
+      <Filter>App\Utils\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\lv_ext\lv_anim_timeline_wrapper.c">
+      <Filter>App\Utils\lv_ext</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\lv_ext\lv_label_anim_effect.cpp">
+      <Filter>App\Utils\lv_ext</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Utils\lv_ext\lv_obj_ext_func.cpp">
+      <Filter>App\Utils\lv_ext</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +233,18 @@
     </Filter>
     <Filter Include="App\Configs">
       <UniqueIdentifier>{3c060dd0-8e6d-4c30-b1ae-561dfaa75b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages\SystemInfos">
+      <UniqueIdentifier>{e5000212-72ca-482a-952b-1d8a48ec81c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Resources\Font">
+      <UniqueIdentifier>{072fb507-8f45-4349-953e-f4afcc6ff887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Resources\Image">
+      <UniqueIdentifier>{497e7bab-42b2-4928-a11f-c2913042acda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Utils\lv_ext">
+      <UniqueIdentifier>{af91cb86-bacd-4743-b8fa-0167dce39702}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

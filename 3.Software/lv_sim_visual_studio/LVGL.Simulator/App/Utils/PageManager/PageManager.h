@@ -1,5 +1,5 @@
-﻿#ifndef _PAGE_MANAGER_H_
-#define _PAGE_MANAGER_H_
+﻿#ifndef __PAGE_MANAGER_H
+#define __PAGE_MANAGER_H
 
 #include "PageBase.h"
 #include "PageFactory.h"

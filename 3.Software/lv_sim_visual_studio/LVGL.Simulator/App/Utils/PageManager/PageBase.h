@@ -1,5 +1,6 @@
-﻿#ifndef _PAGE_BASE_H_
-#define _PAGE_BASE_H_
+﻿
+#ifndef __PAGE_BASE_H
+#define __PAGE_BASE_H
 
 #include "lvgl/lvgl.h"
 
@@ -139,4 +140,4 @@ public:
     }
 };
 
-#endif // 
+#endif // ! __PAGE_BASE_H

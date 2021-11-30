@@ -10,7 +10,7 @@
 #include <Windows.h>
 
 #include "resource.h"
-#include "App.h"
+#include "App/App.h"
 #include "HAL/HAL.h"
 
 #if _MSC_VER >= 1200

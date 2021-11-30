@@ -1,5 +1,5 @@
-﻿#ifndef _PAGE_FACTORY_H_
-#define _PAGE_FACTORY_H_
+﻿#ifndef __PAGE_FACTORY_H
+#define __PAGE_FACTORY_H
 
 #include "PageBase.h"
 

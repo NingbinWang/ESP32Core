@@ -1,5 +1,6 @@
-﻿#include "App.h"
+﻿#include "App/App.h"
 #include "HAL/HAL.h"
+#include "Pages/StatusBar/StatusBar.h"
 #include "Pages/AppFactory.h"
 #include "Utils/PageManager/PageManager.h"
 #include "Resources/ResourcePool.h"
@@ -20,8 +21,8 @@ void App_Init()
 
 void App_UnInit()
 {
-    ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
-    ACCOUNT_SEND_NOTIFY_CMD(Storage, STORAGE_CMD_SAVE);
-    ACCOUNT_SEND_NOTIFY_CMD(Recorder, RECORDER_CMD_STOP);
+    //ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
+    //ACCOUNT_SEND_NOTIFY_CMD(Storage, STORAGE_CMD_SAVE);
+    //ACCOUNT_SEND_NOTIFY_CMD(Recorder, RECORDER_CMD_STOP);
 }
 
