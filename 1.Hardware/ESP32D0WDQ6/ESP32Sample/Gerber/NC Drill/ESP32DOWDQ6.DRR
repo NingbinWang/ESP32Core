@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: ESP32DOWDQ6.PcbDoc   2021/12/11  12:04:00
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : ESP32DOWDQ6-RoundHoles.TXT
+ASCII SlotHoles File : ESP32DOWDQ6-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.305mm)                                           Round             136       PTH        17.35inch (440.77mm)
+T2      24mil (0.599mm)                                           Slot              4         PTH        1.50inch (38.22mm)
+T3      39mil (1.001mm)                                           Round             4         PTH        5.16inch (131.00mm)
+T4      41mil (1.049mm)                                           Round             18        PTH        2.30inch (58.42mm)
+T5      43mil (1.1mm)                                             Round             14        PTH        1.80inch (45.72mm)
+T6      47mil (1.199mm)                                           Round             2         PTH        0.10inch (2.54mm)
+T7      53mil (1.346mm)                                           Round             2         PTH        0.20inch (5.08mm)
+T8      28mil (0.701mm)                                           Round             2         NPTH       0.23inch (5.96mm)
+T9      32mil (0.8mm)                                             Round             2         NPTH       0.24inch (6.20mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              184
+
+Total Processing Time (hh:mm:ss) : 00:00:00
