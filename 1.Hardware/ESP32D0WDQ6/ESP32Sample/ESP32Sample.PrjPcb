@@ -31,7 +31,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=0
-OutputPath=Project Outputs for ESP32Sample
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -112,6 +112,82 @@ DocumentUniqueId=
 DocumentPath=Project Outputs for ESP32Sample\Design Rule Check - ESP32DOWDQ6.html
 DItemRevisionGUID=
 
+[GeneratedDocument2]
+DocumentPath=Gerber\NC Drill\ESP32DOWDQ6-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Gerber\NC Drill\ESP32DOWDQ6-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Gerber\NC Drill\ESP32DOWDQ6.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GD1
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GG1
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Gerber\NC Drill\ESP32DOWDQ6.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.REP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Gerber\Gerber\ESP32DOWDQ6.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Gerber\Pick Place\Pick Place for ESP32DOWDQ6.csv
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -159,7 +235,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=Project Outputs for ESP32Sample
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs

@@ -4,6 +4,7 @@
 namespace HAL
 {
     void HAL_Init();
+    void HAL_Update();
 }
 
 #endif
