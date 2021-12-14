@@ -1,6 +1,13 @@
 ﻿#ifndef _APP_H_
 #define _APP_H_
 
+#ifdef PLATFROMIO
+#include "lvgl.h"
+#else
+#include "lvgl/lvgl.h"
+#endif // PLATFROMIO
+
+#include "Configs/Config.h"
 #define ACCOUNT_SEND_NOTIFY_CMD(ACT, CMD)\
 do{\
     AccountSystem::ACT##_Info_t info;\
@@ -10,7 +17,7 @@ do{\
 }while(0)
 
 
-#ifdef ARDUINO
+#ifdef PLATFROMIO
 #include "Port/Display.h"
 #define INIT_DONE() \
 do{                 \

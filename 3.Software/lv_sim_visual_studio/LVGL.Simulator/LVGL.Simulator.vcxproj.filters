@@ -18,17 +18,59 @@
     <ClInclude Include="App\Configs\Version.h">
       <Filter>App\Configs</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\PagesManger\PagesManager.h">
-      <Filter>Framework\PagesManger</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Resources\ResourcePool.h">
-      <Filter>Framework\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Notification\Notification.h">
       <Filter>Framework\Notification</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utils\AccountSystem\Account.h">
       <Filter>Framework\Utils\AccountSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Port\Display.h">
+      <Filter>Port</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\AppFactory.h">
+      <Filter>Framework\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PagesManager\PageBase.h">
+      <Filter>Framework\PagesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PagesManager\PageFactory.h">
+      <Filter>Framework\PagesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PagesManager\PagesManager.h">
+      <Filter>Framework\PagesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PagesManager\PM_Log.h">
+      <Filter>Framework\PagesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h">
+      <Filter>Framework\Utils\lv_monkey</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\_Template\Template.h">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\Page.h">
+      <Filter>Framework\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\_Template\TemplateView.h">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\_Template\TemplateModel.h">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ResourceManager\ResourceManager.h">
+      <Filter>Framework\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ResourceManager\RM_Log.h">
+      <Filter>Framework\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\StartUp\StartUp.h">
+      <Filter>Framework\Pages\StartUp</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\StartUp\StartUpView.h">
+      <Filter>Framework\Pages\StartUp</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\StartUp\StartUpModel.h">
+      <Filter>Framework\Pages\StartUp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +90,51 @@
     </ClCompile>
     <ClCompile Include="HAL\HAL.cpp">
       <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="Port\Display.cpp">
+      <Filter>Port</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\AppFactroy.cpp">
+      <Filter>Framework\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PagesManager\PagesManagerBase.cpp">
+      <Filter>Framework\PagesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PagesManager\PagesManagerRoute.cpp">
+      <Filter>Framework\PagesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PagesManager\PagesManagerAnim.cpp">
+      <Filter>Framework\PagesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PagesManager\PagesManagerDrag.cpp">
+      <Filter>Framework\PagesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PagesManager\PagesManagerState.cpp">
+      <Filter>Framework\PagesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c">
+      <Filter>Framework\Utils\lv_monkey</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\_Template\Template.cpp">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\_Template\TemplateView.cpp">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\_Template\TemplateModel.cpp">
+      <Filter>Framework\Pages\_Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ResourceManager\ResourceManager.cpp">
+      <Filter>Framework\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\StartUp\StartUp.cpp">
+      <Filter>Framework\Pages\StartUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\StartUp\StartUpView.cpp">
+      <Filter>Framework\Pages\StartUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\StartUp\StartUpModel.cpp">
+      <Filter>Framework\Pages\StartUp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,17 +165,32 @@
     <Filter Include="Framework\Notification">
       <UniqueIdentifier>{6da51d4b-ea42-4d22-b9e7-d841b8b14fef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\Resources">
-      <UniqueIdentifier>{9ee47e66-4160-4be6-8f06-c6793c858f94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\PagesManger">
-      <UniqueIdentifier>{77b819a3-51de-4747-ba5f-eb1e5d24dffe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\PagesManger\StartUp">
-      <UniqueIdentifier>{82970dd1-7808-466e-973d-e816219986e4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Utils\AccountSystem">
       <UniqueIdentifier>{fe1bb529-67f3-4c03-b8d9-61afffc50b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Pages">
+      <UniqueIdentifier>{200bab32-c58b-4056-902b-dd9c5df8d480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Port">
+      <UniqueIdentifier>{90419df1-f86f-46bf-b3bc-71cd99de7a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\PagesManager">
+      <UniqueIdentifier>{77b819a3-51de-4747-ba5f-eb1e5d24dffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utils\lv_monkey">
+      <UniqueIdentifier>{01f96ddb-fb26-45c0-bb67-445a49a31f67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Pages\StartUp">
+      <UniqueIdentifier>{1f2cb3ed-d38a-4f05-9d1b-6a0697074ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Pages\_Template">
+      <UniqueIdentifier>{0f8de1bf-c58b-4a2e-9fd9-22d4d898744e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages">
+      <UniqueIdentifier>{7efb68cb-8895-4036-b519-ea7932270529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\ResourceManager">
+      <UniqueIdentifier>{70b84f9c-3fbd-4de0-8275-1d5ad3f44cf6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

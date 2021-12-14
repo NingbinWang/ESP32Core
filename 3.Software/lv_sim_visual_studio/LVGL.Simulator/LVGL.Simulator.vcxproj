@@ -30,9 +30,22 @@
     <ClInclude Include="App\Configs\Config.h" />
     <ClInclude Include="App\Configs\Version.h" />
     <ClInclude Include="Framework\Notification\Notification.h" />
-    <ClInclude Include="Framework\PagesManger\PagesManager.h" />
-    <ClInclude Include="Framework\Resources\ResourcePool.h" />
+    <ClInclude Include="Framework\PagesManager\PageBase.h" />
+    <ClInclude Include="Framework\PagesManager\PageFactory.h" />
+    <ClInclude Include="Framework\PagesManager\PagesManager.h" />
+    <ClInclude Include="Framework\PagesManager\PM_Log.h" />
+    <ClInclude Include="Framework\Pages\AppFactory.h" />
+    <ClInclude Include="Framework\Pages\Page.h" />
+    <ClInclude Include="Framework\Pages\StartUp\StartUp.h" />
+    <ClInclude Include="Framework\Pages\StartUp\StartUpModel.h" />
+    <ClInclude Include="Framework\Pages\StartUp\StartUpView.h" />
+    <ClInclude Include="Framework\Pages\_Template\Template.h" />
+    <ClInclude Include="Framework\Pages\_Template\TemplateModel.h" />
+    <ClInclude Include="Framework\Pages\_Template\TemplateView.h" />
+    <ClInclude Include="Framework\ResourceManager\ResourceManager.h" />
+    <ClInclude Include="Framework\ResourceManager\RM_Log.h" />
     <ClInclude Include="Framework\Utils\AccountSystem\Account.h" />
+    <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h" />
     <ClInclude Include="HAL\HAL.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
@@ -45,14 +58,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mile.Project.Properties.h" />
+    <ClInclude Include="Port\Display.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App\App.cpp" />
+    <ClCompile Include="Framework\PagesManager\PagesManagerAnim.cpp" />
+    <ClCompile Include="Framework\PagesManager\PagesManagerBase.cpp" />
+    <ClCompile Include="Framework\PagesManager\PagesManagerDrag.cpp" />
+    <ClCompile Include="Framework\PagesManager\PagesManagerRoute.cpp" />
+    <ClCompile Include="Framework\PagesManager\PagesManagerState.cpp" />
+    <ClCompile Include="Framework\Pages\AppFactroy.cpp" />
+    <ClCompile Include="Framework\Pages\StartUp\StartUp.cpp" />
+    <ClCompile Include="Framework\Pages\StartUp\StartUpModel.cpp" />
+    <ClCompile Include="Framework\Pages\StartUp\StartUpView.cpp" />
+    <ClCompile Include="Framework\Pages\_Template\Template.cpp" />
+    <ClCompile Include="Framework\Pages\_Template\TemplateModel.cpp" />
+    <ClCompile Include="Framework\Pages\_Template\TemplateView.cpp" />
+    <ClCompile Include="Framework\ResourceManager\ResourceManager.cpp" />
+    <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c" />
     <ClCompile Include="HAL\HAL.cpp" />
     <ClCompile Include="LVGL.Simulator.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\99.OpenPorject\github\ESP32Core\3.Software\lv_sim_visual_studio\LVGL.Simulator\App;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="Port\Display.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
