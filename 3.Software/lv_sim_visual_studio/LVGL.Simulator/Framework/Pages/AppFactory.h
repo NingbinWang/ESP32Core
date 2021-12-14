@@ -1,4 +1,4 @@
-﻿#include "Framework/PagesManager/PagesManager.h"
+﻿#include "Framework/PageManager/PageManager.h"
 
 class AppFactory : public PageFactory
 {

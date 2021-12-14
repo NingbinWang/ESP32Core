@@ -1,4 +1,4 @@
-﻿#include "PagesManager.h"
+﻿#include "PageManager.h"
 #include "PM_Log.h"
 
  /**
@@ -7,7 +7,7 @@
    * @param  stash: Parameters passed to the new page
    * @retval Pointer to the page pushed onto the stack
    */
-PageBase* PagesManager::Push(const char* name, const PageBase::Stash_t* stash)
+PageBase* PageManager::Push(const char* name, const PageBase::Stash_t* stash)
 {
     /* Check whether the animation of switching pages is being executed */
     if (!SwitchAnimStateCheck())
@@ -50,7 +50,7 @@ PageBase* PagesManager::Push(const char* name, const PageBase::Stash_t* stash)
   * @param  None
   * @retval Pointer to the next page
   */
-PageBase* PagesManager::Pop()
+PageBase* PageManager::Pop()
 {
     /* Check whether the animation of switching pages is being executed */
     if (!SwitchAnimStateCheck())
@@ -98,7 +98,7 @@ PageBase* PagesManager::Pop()
   * @param  stash: Parameters passed to the new page
   * @retval None
   */
-void PagesManager::SwitchTo(PageBase* newNode, bool isPushAct, const PageBase::Stash_t* stash)
+void PageManager::SwitchTo(PageBase* newNode, bool isPushAct, const PageBase::Stash_t* stash)
 {
     if (newNode == nullptr)
     {
@@ -206,7 +206,7 @@ void PagesManager::SwitchTo(PageBase* newNode, bool isPushAct, const PageBase::S
   * @param  base: Pointer to the page being executed
   * @retval Return true if successful
   */
-bool PagesManager::FourceUnload(PageBase* base)
+bool PageManager::FourceUnload(PageBase* base)
 {
     if (base == nullptr)
     {
@@ -233,7 +233,7 @@ bool PagesManager::FourceUnload(PageBase* base)
   * @param  None
   * @retval Return true if successful
   */
-bool PagesManager::BackHome()
+bool PageManager::BackHome()
 {
     /* Check whether the animation of switching pages is being executed */
     if (!SwitchAnimStateCheck())
@@ -257,7 +257,7 @@ bool PagesManager::BackHome()
   * @param  None
   * @retval Return true if it is executing
   */
-bool PagesManager::SwitchAnimStateCheck()
+bool PageManager::SwitchAnimStateCheck()
 {
     if (AnimState.IsSwitchReq || AnimState.IsBusy)
     {
@@ -279,7 +279,7 @@ bool PagesManager::SwitchAnimStateCheck()
   * @param  None
   * @retval Return true if all pages are executed
   */
-bool PagesManager::SwitchReqCheck()
+bool PageManager::SwitchReqCheck()
 {
     bool ret = false;
     bool lastNodeBusy = PagePrev && PagePrev->priv.Anim.IsBusy;
@@ -311,10 +311,10 @@ bool PagesManager::SwitchReqCheck()
   * @param  a: Pointer to animation
   * @retval None
   */
-void PagesManager::onSwitchAnimFinish(lv_anim_t* a)
+void PageManager::onSwitchAnimFinish(lv_anim_t* a)
 {
     PageBase* base = (PageBase*)lv_anim_get_user_data(a);
-    PagesManager* manager = base->Manager;
+    PageManager* manager = base->Manager;
 
     PM_LOG_INFO("Page(%s) Anim finish", base->Name);
 
@@ -333,7 +333,7 @@ void PagesManager::onSwitchAnimFinish(lv_anim_t* a)
   * @param  a: Point to the animated page
   * @retval None
   */
-void PagesManager::SwitchAnimCreate(PageBase* base)
+void PageManager::SwitchAnimCreate(PageBase* base)
 {
     LoadAnimAttr_t animAttr;
     if (!GetCurrentLoadAnimAttr(&animAttr))
@@ -405,7 +405,7 @@ void PagesManager::SwitchAnimCreate(PageBase* base)
   * @param  path: Animation curve
   * @retval None
   */
-void PagesManager::SetGlobalLoadAnimType(LoadAnim_t anim, uint16_t time, lv_anim_path_cb_t path)
+void PageManager::SetGlobalLoadAnimType(LoadAnim_t anim, uint16_t time, lv_anim_path_cb_t path)
 {
     if (anim > _LOAD_ANIM_LAST)
     {
@@ -424,7 +424,7 @@ void PagesManager::SetGlobalLoadAnimType(LoadAnim_t anim, uint16_t time, lv_anim
   * @param  base: Pointer to page
   * @retval None
   */
-void PagesManager::SwitchAnimTypeUpdate(PageBase* base)
+void PageManager::SwitchAnimTypeUpdate(PageBase* base)
 {
     if (base->priv.Anim.Attr.Type == LOAD_ANIM_GLOBAL)
     {
@@ -464,7 +464,7 @@ void PagesManager::SwitchAnimTypeUpdate(PageBase* base)
   * @param  a: Pointer to animation
   * @retval None
   */
-void PagesManager::AnimDefaultInit(lv_anim_t* a)
+void PageManager::AnimDefaultInit(lv_anim_t* a)
 {
     lv_anim_init(a);
 

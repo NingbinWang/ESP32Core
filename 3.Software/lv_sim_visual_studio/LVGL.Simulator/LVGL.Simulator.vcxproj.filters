@@ -30,18 +30,6 @@
     <ClInclude Include="Framework\Pages\AppFactory.h">
       <Filter>Framework\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\PagesManager\PageBase.h">
-      <Filter>Framework\PagesManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\PagesManager\PageFactory.h">
-      <Filter>Framework\PagesManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\PagesManager\PagesManager.h">
-      <Filter>Framework\PagesManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\PagesManager\PM_Log.h">
-      <Filter>Framework\PagesManager</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h">
       <Filter>Framework\Utils\lv_monkey</Filter>
     </ClInclude>
@@ -72,6 +60,39 @@
     <ClInclude Include="Framework\Pages\StartUp\StartUpModel.h">
       <Filter>Framework\Pages\StartUp</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Resources\ResourcePool.h">
+      <Filter>Framework\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PageManager\PageBase.h">
+      <Filter>Framework\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PageManager\PageFactory.h">
+      <Filter>Framework\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PageManager\PageManager.h">
+      <Filter>Framework\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\PageManager\PM_Log.h">
+      <Filter>Framework\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.h">
+      <Filter>Framework\Utils\AccountSystem\PingPongBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\AccountSystem\AccountBroker.h">
+      <Filter>Framework\Utils\AccountSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\AccountSystem\AC_Log.h">
+      <Filter>Framework\Utils\AccountSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Pages\StatusBar\StatusBar.h">
+      <Filter>App\Pages\StatusBar</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Accounts\Account_Master.h">
+      <Filter>App\Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="App\Accounts\ACT_Def.h">
+      <Filter>App\Accounts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lv_demo_conf.h" />
@@ -97,21 +118,6 @@
     <ClCompile Include="Framework\Pages\AppFactroy.cpp">
       <Filter>Framework\Pages</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\PagesManager\PagesManagerBase.cpp">
-      <Filter>Framework\PagesManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\PagesManager\PagesManagerRoute.cpp">
-      <Filter>Framework\PagesManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\PagesManager\PagesManagerAnim.cpp">
-      <Filter>Framework\PagesManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\PagesManager\PagesManagerDrag.cpp">
-      <Filter>Framework\PagesManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\PagesManager\PagesManagerState.cpp">
-      <Filter>Framework\PagesManager</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c">
       <Filter>Framework\Utils\lv_monkey</Filter>
     </ClCompile>
@@ -136,6 +142,87 @@
     <ClCompile Include="Framework\Pages\StartUp\StartUpModel.cpp">
       <Filter>Framework\Pages\StartUp</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Resources\ResourcePool.cpp">
+      <Filter>Framework\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Font\font_agencyb_36.c">
+      <Filter>Framework\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_13.c">
+      <Filter>Framework\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_17.c">
+      <Filter>Framework\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_32.c">
+      <Filter>Framework\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_65.c">
+      <Filter>Framework\Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_start.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_compass.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_gyroscope.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_menu.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_pause.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_satellite.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_stop.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_system_info.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_time_info.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_trip.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PageManager\PageManagerAnim.cpp">
+      <Filter>Framework\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PageManager\PageManagerBase.cpp">
+      <Filter>Framework\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PageManager\PageManagerDrag.cpp">
+      <Filter>Framework\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PageManager\PageManagerRoute.cpp">
+      <Filter>Framework\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\PageManager\PageManagerState.cpp">
+      <Filter>Framework\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\AccountSystem\Account.cpp">
+      <Filter>Framework\Utils\AccountSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.cpp">
+      <Filter>Framework\Utils\AccountSystem\PingPongBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\AccountSystem\AccountBroker.cpp">
+      <Filter>Framework\Utils\AccountSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Accounts\Account_Master.cpp">
+      <Filter>App\Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Accounts\ACT_SysConfig.cpp">
+      <Filter>App\Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp">
+      <Filter>App\Pages\StatusBar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LVGL.Simulator.rc" />
@@ -145,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="freetype.props" />
+    <None Include="App\Accounts\_ACT_LIST.inc">
+      <Filter>App\Accounts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="App">
@@ -174,9 +264,6 @@
     <Filter Include="Port">
       <UniqueIdentifier>{90419df1-f86f-46bf-b3bc-71cd99de7a71}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\PagesManager">
-      <UniqueIdentifier>{77b819a3-51de-4747-ba5f-eb1e5d24dffe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Utils\lv_monkey">
       <UniqueIdentifier>{01f96ddb-fb26-45c0-bb67-445a49a31f67}</UniqueIdentifier>
     </Filter>
@@ -191,6 +278,27 @@
     </Filter>
     <Filter Include="Framework\ResourceManager">
       <UniqueIdentifier>{70b84f9c-3fbd-4de0-8275-1d5ad3f44cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Resources">
+      <UniqueIdentifier>{46a74c8d-c903-4593-8179-6271ac1897d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Resources\Font">
+      <UniqueIdentifier>{0145a4ee-b651-4b13-bbb4-e88b5003b0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Resources\Image">
+      <UniqueIdentifier>{e24fe901-4519-47f9-b089-6219dfc6d2a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\PageManager">
+      <UniqueIdentifier>{b66d2316-0a83-4b0f-8ada-790ba9f0e91b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utils\AccountSystem\PingPongBuffer">
+      <UniqueIdentifier>{aa353f40-2895-43ab-8138-8bf53968dc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Pages\StatusBar">
+      <UniqueIdentifier>{25f24478-1241-47e2-b3bd-6bd176052dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Accounts">
+      <UniqueIdentifier>{a38e1b15-b816-4e76-b8bf-05c4e1d2a50d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

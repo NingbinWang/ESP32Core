@@ -1,4 +1,4 @@
-﻿#include "PagesManager.h"
+﻿#include "PageManager.h"
 #include "PM_Log.h"
 #include <stdlib.h>
 
@@ -12,7 +12,7 @@
   * @param  event: Pointer to event structure
   * @retval None
   */
-void PagesManager::onRootDragEvent(lv_event_t* event)
+void PageManager::onRootDragEvent(lv_event_t* event)
 {
     lv_obj_t* root = lv_event_get_target(event);
     PageBase* base = (PageBase*)lv_event_get_user_data(event);
@@ -24,7 +24,7 @@ void PagesManager::onRootDragEvent(lv_event_t* event)
     }
 
     lv_event_code_t eventCode = lv_event_get_code(event);
-    PagesManager* manager = base->Manager;
+    PageManager* manager = base->Manager;
     LoadAnimAttr_t animAttr;
 
     if (!manager->GetCurrentLoadAnimAttr(&animAttr))
@@ -119,9 +119,9 @@ void PagesManager::onRootDragEvent(lv_event_t* event)
   * @param  a: Pointer to animation
   * @retval None
   */
-void PagesManager::onRootAnimFinish(lv_anim_t* a)
+void PageManager::onRootAnimFinish(lv_anim_t* a)
 {
-    PagesManager* manager = (PagesManager*)lv_anim_get_user_data(a);
+    PageManager* manager = (PageManager*)lv_anim_get_user_data(a);
     PM_LOG_INFO("Root anim finish");
     manager->AnimState.IsBusy = false;
 }
@@ -131,7 +131,7 @@ void PagesManager::onRootAnimFinish(lv_anim_t* a)
   * @param  root: Pointer to the root object
   * @retval None
   */
-void PagesManager::RootEnableDrag(lv_obj_t* root)
+void PageManager::RootEnableDrag(lv_obj_t* root)
 {
     PageBase* base = (PageBase*)lv_obj_get_user_data(root);
     lv_obj_add_event_cb(
@@ -160,7 +160,7 @@ void PagesManager::RootEnableDrag(lv_obj_t* root)
   * @param  data: Pointer to the base class of the page
   * @retval None
   */
-void PagesManager::onRootAsyncLeave(void* data)
+void PageManager::onRootAsyncLeave(void* data)
 {
     PageBase* base = (PageBase*)data;
     PM_LOG_INFO("Page(%s) send event: LV_EVENT_LEAVE, need to handle...", base->Name);
@@ -173,7 +173,7 @@ void PagesManager::onRootAsyncLeave(void* data)
   * @param  y: y stop point
   * @retval None
   */
-void PagesManager::RootGetDragPredict(lv_coord_t* x, lv_coord_t* y)
+void PageManager::RootGetDragPredict(lv_coord_t* x, lv_coord_t* y)
 {
     lv_indev_t* indev = lv_indev_get_act();
     lv_point_t vect;

@@ -1,7 +1,7 @@
 ﻿#ifndef _PAGE_H_
 #define _PAGE_H_
 
-#include "Framework/PagesManager/PagesManager.h"
+#include "Framework/PageManager/PageManager.h"
 
 #ifdef PLATFROMIO
 #include "lvgl.h"

@@ -14,7 +14,7 @@ Startup::~Startup()
 void Startup::onCustomAttrConfig()
 {
     SetCustomCacheEnable(false);
-    SetCustomLoadAnimType(PagesManager::LOAD_ANIM_NONE);
+    SetCustomLoadAnimType(PageManager::LOAD_ANIM_NONE);
 }
 
 void Startup::onViewLoad()

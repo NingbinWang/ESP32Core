@@ -26,14 +26,17 @@
   <Import Project="LVGL.Demonstrations.vcxitems" />
   <Import Project="LVGL.Drivers.vcxitems" />
   <ItemGroup>
+    <ClInclude Include="App\Accounts\Account_Master.h" />
+    <ClInclude Include="App\Accounts\ACT_Def.h" />
     <ClInclude Include="App\App.h" />
     <ClInclude Include="App\Configs\Config.h" />
     <ClInclude Include="App\Configs\Version.h" />
+    <ClInclude Include="App\Pages\StatusBar\StatusBar.h" />
     <ClInclude Include="Framework\Notification\Notification.h" />
-    <ClInclude Include="Framework\PagesManager\PageBase.h" />
-    <ClInclude Include="Framework\PagesManager\PageFactory.h" />
-    <ClInclude Include="Framework\PagesManager\PagesManager.h" />
-    <ClInclude Include="Framework\PagesManager\PM_Log.h" />
+    <ClInclude Include="Framework\PageManager\PageBase.h" />
+    <ClInclude Include="Framework\PageManager\PageFactory.h" />
+    <ClInclude Include="Framework\PageManager\PageManager.h" />
+    <ClInclude Include="Framework\PageManager\PM_Log.h" />
     <ClInclude Include="Framework\Pages\AppFactory.h" />
     <ClInclude Include="Framework\Pages\Page.h" />
     <ClInclude Include="Framework\Pages\StartUp\StartUp.h" />
@@ -44,7 +47,11 @@
     <ClInclude Include="Framework\Pages\_Template\TemplateView.h" />
     <ClInclude Include="Framework\ResourceManager\ResourceManager.h" />
     <ClInclude Include="Framework\ResourceManager\RM_Log.h" />
+    <ClInclude Include="Framework\Resources\ResourcePool.h" />
     <ClInclude Include="Framework\Utils\AccountSystem\Account.h" />
+    <ClInclude Include="Framework\Utils\AccountSystem\AccountBroker.h" />
+    <ClInclude Include="Framework\Utils\AccountSystem\AC_Log.h" />
+    <ClInclude Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.h" />
     <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h" />
     <ClInclude Include="HAL\HAL.h" />
     <ClInclude Include="lv_conf.h" />
@@ -62,12 +69,15 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="App\Accounts\Account_Master.cpp" />
+    <ClCompile Include="App\Accounts\ACT_SysConfig.cpp" />
     <ClCompile Include="App\App.cpp" />
-    <ClCompile Include="Framework\PagesManager\PagesManagerAnim.cpp" />
-    <ClCompile Include="Framework\PagesManager\PagesManagerBase.cpp" />
-    <ClCompile Include="Framework\PagesManager\PagesManagerDrag.cpp" />
-    <ClCompile Include="Framework\PagesManager\PagesManagerRoute.cpp" />
-    <ClCompile Include="Framework\PagesManager\PagesManagerState.cpp" />
+    <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp" />
+    <ClCompile Include="Framework\PageManager\PageManagerAnim.cpp" />
+    <ClCompile Include="Framework\PageManager\PageManagerBase.cpp" />
+    <ClCompile Include="Framework\PageManager\PageManagerDrag.cpp" />
+    <ClCompile Include="Framework\PageManager\PageManagerRoute.cpp" />
+    <ClCompile Include="Framework\PageManager\PageManagerState.cpp" />
     <ClCompile Include="Framework\Pages\AppFactroy.cpp" />
     <ClCompile Include="Framework\Pages\StartUp\StartUp.cpp" />
     <ClCompile Include="Framework\Pages\StartUp\StartUpModel.cpp" />
@@ -76,6 +86,25 @@
     <ClCompile Include="Framework\Pages\_Template\TemplateModel.cpp" />
     <ClCompile Include="Framework\Pages\_Template\TemplateView.cpp" />
     <ClCompile Include="Framework\ResourceManager\ResourceManager.cpp" />
+    <ClCompile Include="Framework\Resources\Font\font_agencyb_36.c" />
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_13.c" />
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_17.c" />
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_32.c" />
+    <ClCompile Include="Framework\Resources\Font\font_bahnschrift_65.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_compass.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_gyroscope.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_menu.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_pause.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_satellite.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_start.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_stop.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_system_info.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_time_info.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_trip.c" />
+    <ClCompile Include="Framework\Resources\ResourcePool.cpp" />
+    <ClCompile Include="Framework\Utils\AccountSystem\Account.cpp" />
+    <ClCompile Include="Framework\Utils\AccountSystem\AccountBroker.cpp" />
+    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.cpp" />
     <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c" />
     <ClCompile Include="HAL\HAL.cpp" />
     <ClCompile Include="LVGL.Simulator.cpp">
@@ -90,6 +119,7 @@
     <Image Include="LVGL.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App\Accounts\_ACT_LIST.inc" />
     <None Include="freetype.props" />
   </ItemGroup>
   <Import Project="Mile.Project\Mile.Project.targets" />

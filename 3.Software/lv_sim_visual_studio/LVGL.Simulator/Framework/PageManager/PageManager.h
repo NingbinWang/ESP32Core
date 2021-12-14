@@ -6,7 +6,7 @@
 #include <vector>
 #include <stack>
 
-class PagesManager
+class PageManager
 {
 public:
 
@@ -80,8 +80,8 @@ public:
     } LoadAnimAttr_t;
 
 public:
-    PagesManager(PageFactory* factory = nullptr);
-    ~PagesManager();
+    PageManager(PageFactory* factory = nullptr);
+    ~PageManager();
 
     /* Loader */
     PageBase* Install(const char* className, const char* appName);

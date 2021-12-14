@@ -13,7 +13,7 @@
 // Get the data in the stash area
 #define PAGE_STASH_POP(data)  this->GetStash(&(data), sizeof(data))
 
-class PagesManager;
+class PageManager;
 
 class PageBase
 {
@@ -49,7 +49,7 @@ public:
 
 public:
     lv_obj_t* root;  //UI root node
-    PagesManager* Manager; // Page manager pointer
+    PageManager* Manager; // Page manager pointer
     const char* Name;     // Page name
     uint16_t ID;          // Page ID
     void* UserData;       // User data pointer

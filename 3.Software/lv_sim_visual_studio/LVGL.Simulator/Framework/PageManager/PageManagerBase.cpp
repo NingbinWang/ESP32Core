@@ -1,4 +1,4 @@
-﻿#include "PagesManager.h"
+﻿#include "PageManager.h"
 #include "PM_Log.h"
 #include <algorithm>
 
@@ -9,7 +9,7 @@
   * @param  factory: Pointer to the page factory
   * @retval None
   */
-PagesManager::PagesManager(PageFactory* factory)
+PageManager::PageManager(PageFactory* factory)
     : Factory(factory)
     , PagePrev(nullptr)
     , PageCurrent(nullptr)
@@ -24,7 +24,7 @@ PagesManager::PagesManager(PageFactory* factory)
   * @param  None
   * @retval None
   */
-PagesManager::~PagesManager()
+PageManager::~PageManager()
 {
 }
 
@@ -33,7 +33,7 @@ PagesManager::~PagesManager()
   * @param  name: Page name
   * @retval A pointer to the base class of the page, or nullptr if not found
   */
-PageBase* PagesManager::FindPageInPool(const char* name)
+PageBase* PageManager::FindPageInPool(const char* name)
 {
     for (auto iter : PagePool)
     {
@@ -50,7 +50,7 @@ PageBase* PagesManager::FindPageInPool(const char* name)
   * @param  name: Page name
   * @retval A pointer to the base class of the page, or nullptr if not found
   */
-PageBase* PagesManager::FindPageInStack(const char* name)
+PageBase* PageManager::FindPageInStack(const char* name)
 {
     decltype(PageStack) stk = PageStack;
     while (!stk.empty())
@@ -74,7 +74,7 @@ PageBase* PagesManager::FindPageInStack(const char* name)
   * @param  appName: Page application name, no duplicates allowed
   * @retval A pointer to the base class of the page, or nullptr if wrong
   */
-PageBase* PagesManager::Install(const char* className, const char* appName)
+PageBase* PageManager::Install(const char* className, const char* appName)
 {
     if (Factory == nullptr)
     {
@@ -114,7 +114,7 @@ PageBase* PagesManager::Install(const char* className, const char* appName)
   * @param  appName: Page application name, no duplicates allowed
   * @retval Return true if the uninstallation is successful
   */
-bool PagesManager::Uninstall(const char* appName)
+bool PageManager::Uninstall(const char* appName)
 {
     PM_LOG_INFO("Page(%s) uninstall...", appName);
 
@@ -152,7 +152,7 @@ bool PagesManager::Uninstall(const char* appName)
   * @param  name: Page application name, duplicate registration is not allowed
   * @retval Return true if the registration is successful
   */
-bool PagesManager::Register(PageBase* base, const char* name)
+bool PageManager::Register(PageBase* base, const char* name)
 {
     if (FindPageInPool(name) != nullptr)
     {
@@ -173,7 +173,7 @@ bool PagesManager::Register(PageBase* base, const char* name)
   * @param  name: Page application name
   * @retval Return true if the logout is successful
   */
-bool PagesManager::Unregister(const char* name)
+bool PageManager::Unregister(const char* name)
 {
     PM_LOG_INFO("Page(%s) unregister...", name);
 
@@ -211,7 +211,7 @@ bool PagesManager::Unregister(const char* name)
   * @param  None
   * @retval A pointer to the base class of the page
   */
-PageBase* PagesManager::GetStackTop()
+PageBase* PageManager::GetStackTop()
 {
     return PageStack.empty() ? nullptr : PageStack.top();
 }
@@ -221,7 +221,7 @@ PageBase* PagesManager::GetStackTop()
   * @param  None
   * @retval A pointer to the base class of the page
   */
-PageBase* PagesManager::GetStackTopAfter()
+PageBase* PageManager::GetStackTopAfter()
 {
     PageBase* top = GetStackTop();
 
@@ -244,7 +244,7 @@ PageBase* PagesManager::GetStackTopAfter()
   * @param  keepBottom: Whether to keep the bottom page of the stack
   * @retval None
   */
-void PagesManager::SetStackClear(bool keepBottom)
+void PageManager::SetStackClear(bool keepBottom)
 {
     while (1)
     {
@@ -284,7 +284,7 @@ void PagesManager::SetStackClear(bool keepBottom)
   * @param  None
   * @retval The name of the previous page, if it does not exist, return PM_EMPTY_PAGE_NAME
   */
-const char* PagesManager::GetPagePrevName()
+const char* PageManager::GetPagePrevName()
 {
     return PagePrev ? PagePrev->Name : PM_EMPTY_PAGE_NAME;
 }
