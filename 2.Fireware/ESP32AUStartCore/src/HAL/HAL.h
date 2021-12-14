@@ -8,6 +8,7 @@
 namespace HAL
 {
     void Init();
+    void Update();
     // Backlight 
     void Backlight_Init();
     uint32_t Backlight_GetValue();

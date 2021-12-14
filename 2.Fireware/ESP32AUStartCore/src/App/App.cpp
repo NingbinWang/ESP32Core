@@ -1,76 +1,33 @@
+﻿#include "App/App.h"
+#include "HAL/HAL.h"
 
-#include "Config/Config.h"
-#include "Common/DataProc/DataProc.h"
-#include "Resource/ResourcePool.h"
-#include "Pages/AppFactory.h"
+#include "Framework/PageManager/PageManager.h"
+#include "Framework/Pages/AppFactory.h"
+#include "Accounts/Account_Master.h"
+#include "Framework/Resources/ResourcePool.h"
 #include "Pages/StatusBar/StatusBar.h"
-#include "Utils/PageManager/PageManager.h"
 
-#if CONFIG_MAP_PNG_DECODE_ENABLE
-#  include "Utils/lv_lib_png/lv_png.h"
-#endif
-
-#if CONFIG_MONKEY_TEST_ENABLE
-#  include "Utils/lv_monkey/lv_monkey.h"
-#endif
-
-#define ACCOUNT_SEND_CMD(ACT, CMD)\
-do{\
-    DataProc::ACT##_Info_t info;\
-    memset(&info, 0, sizeof(info));\
-    info.cmd = DataProc::CMD;\
-    DataProc::Center()->AccountMain.Notify(#ACT, &info, sizeof(info));\
-}while(0)
 
 void App_Init()
 {
     static AppFactory factory;
     static PageManager manager(&factory);
-
-#if CONFIG_MAP_PNG_DECODE_ENABLE
-    lv_png_init();
-#endif
-
-#if CONFIG_MONKEY_TEST_ENABLE
-    lv_monkey_config_t config;
-    lv_monkey_config_init(&config);
-    config.type = CONFIG_MONKEY_INDEV_TYPE;
-    config.time.min = CONFIG_MONKEY_TIME_MIN;
-    config.time.max = CONFIG_MONKEY_TIME_MAX;
-    config.input_range.min = CONFIG_MONKEY_INPUT_RANGE_MIN;
-    config.input_range.max = CONFIG_MONKEY_INPUT_RANGE_MAX;
-    lv_monkey_create(&config);
-    LV_LOG_WARN("lv_monkey test started!");
-#endif
-
-    DataProc_Init();
-
-    ACCOUNT_SEND_CMD(Storage, STORAGE_CMD_LOAD);
-    ACCOUNT_SEND_CMD(SysConfig, SYSCONFIG_CMD_LOAD);
-
-    lv_obj_t* scr = lv_scr_act();
-    lv_obj_remove_style_all(scr);
-    lv_obj_clear_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
-    lv_disp_set_bg_color(lv_disp_get_default(), lv_color_black());
-
-    ResourcePool::Init();
-
-    StatusBar::Init(lv_layer_top());
-
-    manager.Install("Template",    "Pages/_Template");
-    manager.Install("LiveMap",     "Pages/LiveMap");
-    manager.Install("Dialplate",   "Pages/Dialplate");
+    Accounts_Init();
+    Resource.Init();
+    /*----------------------- Pages Init -----------------------*/
+   // StatusBar::Init(lv_layer_top());
+    manager.Install("Template", "Pages/Template");
     manager.Install("SystemInfos", "Pages/SystemInfos");
-    manager.Install("Startup",     "Pages/Startup");
+    manager.Install("Startup", "Pages/Startup");
+ //   manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
+   // manager.Push("Pages/Startup");
+  //  ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_LOAD);
 
-    manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
-
-    manager.Push("Pages/Startup");
+    INIT_DONE();
 }
 
-void App_Uninit()
+void App_UnInit()
 {
-    ACCOUNT_SEND_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
-    ACCOUNT_SEND_CMD(Storage,   STORAGE_CMD_SAVE);
-    ACCOUNT_SEND_CMD(Recorder,  RECORDER_CMD_STOP);
+    ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
 }
+

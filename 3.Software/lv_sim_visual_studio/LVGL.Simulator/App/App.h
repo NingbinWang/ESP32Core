@@ -1,7 +1,7 @@
 ﻿#ifndef _APP_H_
 #define _APP_H_
 
-#ifdef PLATFROMIO
+#ifdef ARDUINO
 #include "lvgl.h"
 #else
 #include "lvgl/lvgl.h"

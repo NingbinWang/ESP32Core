@@ -20,3 +20,6 @@ void HAL::Init()
         
     HAL::Backlight_Init();
 }
+void HAL::Update()
+{
+}
