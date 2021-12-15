@@ -1,4 +1,4 @@
-#ifndef __DATA_PROC_DEF_H
+﻿#ifndef __DATA_PROC_DEF_H
 #define __DATA_PROC_DEF_H
 
 #include <stdint.h>
@@ -90,11 +90,7 @@ typedef struct
 {
     SysConfig_Cmd_t cmd;
     bool soundEnable;
-    double longitudeDefault;
-    double latitudeDefault;
     char language[8];
-    char mapDirPath[32];
-    bool WGS84;
     char arrowTheme[8];
 } SysConfig_Info_t;
 

@@ -1,20 +1,15 @@
 ﻿#include "Account_Master.h"
 #include "HAL/HAL.h"
 #include "App/Configs/Config.h"
-#include <stdio.h>
 
 using namespace AccountSystem;
 
 static SysConfig_Info_t sysConfig =
     {
-       // .cmd = SYSCONFIG_CMD_LOAD,
-      //  .soundEnable = CONFIG_SOUND_ENABLE_DEFAULT,
-      //  .longitudeDefault = CONFIG_GPS_LNG_DEFAULT,
-       // .latitudeDefault = CONFIG_GPS_LAT_DEFAULT,
-       // .language = CONFIG_SYSTEM_LANGUAGE_DEFAULT,
-       // .mapDirPath = CONFIG_MAP_DIR_PATH,
-       // .WGS84 = CONFIG_MAP_USE_WGS84_DEFAULT,
-        //.arrowTheme = CONFIG_ARROW_THEME_DEFAULT,
+       SYSCONFIG_CMD_LOAD,//cmd
+	   CONFIG_SOUND_ENABLE_DEFAULT,
+       CONFIG_SYSTEM_LANGUAGE_DEFAULT,//language
+       CONFIG_ARROW_THEME_DEFAULT,//arrowTheme
     };
 
 static int onEvent(Account* account, Account::EventParam_t* param)
@@ -32,7 +27,7 @@ static int onEvent(Account* account, Account::EventParam_t* param)
         {
             if (info->cmd == SYSCONFIG_CMD_LOAD)
             {
-                //HAL::Buzz_SetEnable(sysConfig.soundEnable);
+                HAL::Buzz_SetEnable(sysConfig.soundEnable);
             }
         }
             break;
@@ -50,14 +45,9 @@ static int onEvent(Account* account, Account::EventParam_t* param)
 
 ACCOUNT_INIT_DEF(SysConfig)
 {
-    account->Subscribe("Storage");
-    account->SetEventCallback(onEvent);
-
-    STORAGE_VALUE_REG(account, sysConfig.soundEnable, STORAGE_TYPE_INT);
-    STORAGE_VALUE_REG(account, sysConfig.longitudeDefault, STORAGE_TYPE_DOUBLE);
-    STORAGE_VALUE_REG(account, sysConfig.latitudeDefault, STORAGE_TYPE_DOUBLE);
-    STORAGE_VALUE_REG(account, sysConfig.language, STORAGE_TYPE_STRING);
-    STORAGE_VALUE_REG(account, sysConfig.mapDirPath, STORAGE_TYPE_STRING);
-    STORAGE_VALUE_REG(account, sysConfig.WGS84, STORAGE_TYPE_INT);
-    STORAGE_VALUE_REG(account, sysConfig.arrowTheme, STORAGE_TYPE_STRING);
+  //  account->Subscribe("Storage");
+  //  account->SetEventCallback(onEvent);
+   // STORAGE_VALUE_REG(account, sysConfig.soundEnable, STORAGE_TYPE_INT);
+   // STORAGE_VALUE_REG(account, sysConfig.language, STORAGE_TYPE_STRING);
+   // STORAGE_VALUE_REG(account, sysConfig.arrowTheme, STORAGE_TYPE_STRING);
 }

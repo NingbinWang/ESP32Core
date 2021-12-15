@@ -109,27 +109,26 @@ static void StatusBar_AnimCreate(lv_obj_t* contBatt)
 static void StatusBar_Update(lv_timer_t* timer)
 {
     AccountSystem::Storage_Basic_Info_t sdInfo;
-    actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
-    sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
+  //  actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
+   // sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
 
-   // HAL::BluetoothConnected() ? lv_obj_clear_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN);
+    HAL::BluetoothConnected() ? lv_obj_clear_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN);
 
     /* battery */
-    /*
-  HAL::Power_Info_t power;
- actStatusBar->Pull("Power", &power, sizeof(power));
+    HAL::Power_Info_t power;
+    actStatusBar->Pull("Power", &power, sizeof(power));
     lv_label_set_text_fmt(ui.battery.label, "%d", power.usage);
 
-   bool Is_BattCharging = power.isCharging;
-   lv_obj_t* contBatt = ui.battery.objUsage;
+    bool Is_BattCharging = power.isCharging;
+    lv_obj_t* contBatt = ui.battery.objUsage;
     static bool Is_BattChargingAnimActive = false;
-   if (Is_BattCharging)
+    if (Is_BattCharging)
     {
         if (!Is_BattChargingAnimActive)
-       {
+        {
             StatusBar_AnimCreate(contBatt);
-           Is_BattChargingAnimActive = true;
-       }
+            Is_BattChargingAnimActive = true;
+        }
     }
     else
     {
@@ -142,7 +141,6 @@ static void StatusBar_Update(lv_timer_t* timer)
         lv_coord_t height = lv_map(power.usage, 0, 100, 0, BATT_USAGE_HEIGHT);
         lv_obj_set_height(contBatt, height);
     }
-    */
 }
 
 static lv_obj_t* StatusBar_Create(lv_obj_t* par)
@@ -185,7 +183,7 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     static lv_style_t style;
     lv_style_init(&style);
     lv_style_set_text_color(&style, lv_color_white());
-   // lv_style_set_text_font(&style, Resource.GetFont("bahnschrift_13"));
+    lv_style_set_text_font(&style, Resource.GetFont("bahnschrift_13"));
 
     //    /* satellite */
     lv_obj_t* img = lv_img_create(cont);
@@ -200,18 +198,18 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     ui.satellite.label = label;
 
     /* sd card */
-   // img = lv_img_create(cont);
-  //  lv_img_set_src(img, Resource.GetImage("sd_card"));
-  //  lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
-   // lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-   // ui.imgSD = img;
+    img = lv_img_create(cont);
+    lv_img_set_src(img, Resource.GetImage("sd_card"));
+    lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
+    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
+    ui.imgSD = img;
 
     /* bluetooth */
-   // img = lv_img_create(cont);
-    //lv_img_set_src(img, Resource.GetImage("bluetooth"));
-   // lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
-    //lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-    //ui.imgBT = img;
+    img = lv_img_create(cont);
+    lv_img_set_src(img, Resource.GetImage("bluetooth"));
+    lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
+    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
+    ui.imgBT = img;
 
     /* clock */
     //label = lv_label_create(cont);
@@ -221,20 +219,20 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     //ui.labelClock = label;
 
     /* recorder */
-   // label = lv_label_create(cont);
-   // lv_obj_add_style(label, &style, 0);
-   // lv_obj_align(label, LV_ALIGN_RIGHT_MID, -50, 0);
-  //  lv_label_set_text(label, "");
-  //  lv_obj_add_flag(label, LV_OBJ_FLAG_HIDDEN);
-  //  ui.labelRec = label;
+    label = lv_label_create(cont);
+    lv_obj_add_style(label, &style, 0);
+    lv_obj_align(label, LV_ALIGN_RIGHT_MID, -50, 0);
+    lv_label_set_text(label, "");
+    lv_obj_add_flag(label, LV_OBJ_FLAG_HIDDEN);
+    ui.labelRec = label;
 
     /* battery */
-  //  img = lv_img_create(cont);
-  //  lv_img_set_src(img, Resource.GetImage("battery"));
-  //  lv_obj_align(img, LV_ALIGN_RIGHT_MID, -30, 0);
-  //  lv_img_t* img_ext = (lv_img_t*)img;
-  //  lv_obj_set_size(img, img_ext->w, img_ext->h);
-  //  ui.battery.img = img;
+    img = lv_img_create(cont);
+    lv_img_set_src(img, Resource.GetImage("battery"));
+    lv_obj_align(img, LV_ALIGN_RIGHT_MID, -30, 0);
+    lv_img_t* img_ext = (lv_img_t*)img;
+    lv_obj_set_size(img, img_ext->w, img_ext->h);
+    ui.battery.img = img;
 
     lv_obj_t* obj = lv_obj_create(img);
     lv_obj_remove_style_all(obj);
@@ -285,7 +283,7 @@ void StatusBar::Init(lv_obj_t* par)
 ACCOUNT_INIT_DEF(StatusBar)
 {
     account->Subscribe("Power");
-    account->Subscribe("Storage");
+   // account->Subscribe("Storage");
     account->SetEventCallback(onEvent);
 
     actStatusBar = account;
@@ -309,7 +307,7 @@ void StatusBar::Appear(bool en)
     lv_anim_set_values(&a, start, end);
     lv_anim_set_time(&a, 500);
     lv_anim_set_delay(&a, 1000);
- //   lv_anim_set_exec_cb(&a, LV_ANIM_EXEC(y));
+    lv_anim_set_exec_cb(&a, LV_ANIM_EXEC(y));
     lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
     lv_anim_set_early_apply(&a, true);
     lv_anim_start(&a);

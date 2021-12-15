@@ -30,9 +30,6 @@
     <ClInclude Include="Framework\Pages\AppFactory.h">
       <Filter>Framework\Pages</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h">
-      <Filter>Framework\Utils\lv_monkey</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Pages\_Template\Template.h">
       <Filter>Framework\Pages\_Template</Filter>
     </ClInclude>
@@ -84,14 +81,47 @@
     <ClInclude Include="Framework\Utils\AccountSystem\AC_Log.h">
       <Filter>Framework\Utils\AccountSystem</Filter>
     </ClInclude>
-    <ClInclude Include="App\Pages\StatusBar\StatusBar.h">
-      <Filter>App\Pages\StatusBar</Filter>
-    </ClInclude>
     <ClInclude Include="App\Accounts\Account_Master.h">
       <Filter>App\Accounts</Filter>
     </ClInclude>
     <ClInclude Include="App\Accounts\ACT_Def.h">
       <Filter>App\Accounts</Filter>
+    </ClInclude>
+    <ClInclude Include="HAL\HAL_Def.h">
+      <Filter>HAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\lv_ext\lv_anim_timeline_wrapper.h">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\lv_ext\lv_label_anim_effect.h">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\lv_ext\lv_obj_ext_func.h">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Pages\StatusBar\StatusBar.h">
+      <Filter>Framework\Pages\StatusBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\FilterBase.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\Filters.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\HysteresisFilter.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\LowpassFilter.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\MedianFilter.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\MedianQueueFilter.h">
+      <Filter>Framework\Utils\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils\Filters\SlidingFilter.h">
+      <Filter>Framework\Utils\Filters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,9 +147,6 @@
     </ClCompile>
     <ClCompile Include="Framework\Pages\AppFactroy.cpp">
       <Filter>Framework\Pages</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c">
-      <Filter>Framework\Utils\lv_monkey</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Pages\_Template\Template.cpp">
       <Filter>Framework\Pages\_Template</Filter>
@@ -208,7 +235,7 @@
     <ClCompile Include="Framework\Utils\AccountSystem\Account.cpp">
       <Filter>Framework\Utils\AccountSystem</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.cpp">
+    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.c">
       <Filter>Framework\Utils\AccountSystem\PingPongBuffer</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utils\AccountSystem\AccountBroker.cpp">
@@ -220,8 +247,104 @@
     <ClCompile Include="App\Accounts\ACT_SysConfig.cpp">
       <Filter>App\Accounts</Filter>
     </ClCompile>
-    <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp">
-      <Filter>App\Pages\StatusBar</Filter>
+    <ClCompile Include="HAL\HAL_Backlight.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_Bluetooth.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_I2C_Scan.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_IMU.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_SdCard.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_Buzz.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_Encoder.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_Audio.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="HAL\HAL_Power.cpp">
+      <Filter>HAL</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\lv_ext\lv_anim_timeline_wrapper.c">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\lv_ext\lv_label_anim_effect.cpp">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils\lv_ext\lv_obj_ext_func.cpp">
+      <Filter>Framework\Utils\lv_ext</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Pages\StatusBar\StatusBar.cpp">
+      <Filter>Framework\Pages\StatusBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_alarm.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_arm.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_battery.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_battery_info.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_bicycle.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_bluetooth.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_dark.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_default.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_light.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_pin.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_joints.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_locate.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_map_location.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_origin_point.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_pose6d.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_sd_card.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Resources\Image\img_src_storage.c">
+      <Filter>Framework\Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Accounts\ACT_IMU.cpp">
+      <Filter>App\Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Accounts\ACT_MusicPlayer.cpp">
+      <Filter>App\Accounts</Filter>
+    </ClCompile>
+    <ClCompile Include="App\Accounts\ACT_Power.cpp">
+      <Filter>App\Accounts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -264,9 +387,6 @@
     <Filter Include="Port">
       <UniqueIdentifier>{90419df1-f86f-46bf-b3bc-71cd99de7a71}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\Utils\lv_monkey">
-      <UniqueIdentifier>{01f96ddb-fb26-45c0-bb67-445a49a31f67}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Pages\StartUp">
       <UniqueIdentifier>{1f2cb3ed-d38a-4f05-9d1b-6a0697074ea0}</UniqueIdentifier>
     </Filter>
@@ -294,11 +414,17 @@
     <Filter Include="Framework\Utils\AccountSystem\PingPongBuffer">
       <UniqueIdentifier>{aa353f40-2895-43ab-8138-8bf53968dc82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\Pages\StatusBar">
-      <UniqueIdentifier>{25f24478-1241-47e2-b3bd-6bd176052dac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="App\Accounts">
       <UniqueIdentifier>{a38e1b15-b816-4e76-b8bf-05c4e1d2a50d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utils\lv_ext">
+      <UniqueIdentifier>{a6feb4a0-a58c-478b-9e54-86a72aaa3cee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Pages\StatusBar">
+      <UniqueIdentifier>{88a3e958-95a8-4750-8741-2100aff30fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utils\Filters">
+      <UniqueIdentifier>{f90eeb15-30e3-437a-b702-e4341b8efef0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

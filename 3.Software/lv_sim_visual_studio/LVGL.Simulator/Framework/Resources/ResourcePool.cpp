@@ -26,15 +26,34 @@ do{\
         IMPORT_FONT(agencyb_36);
 
         /* Import Images */
+        IMPORT_IMG(alarm);
+        IMPORT_IMG(battery);
+        IMPORT_IMG(battery_info);
+        IMPORT_IMG(bicycle);
         IMPORT_IMG(compass);
+        IMPORT_IMG(gps_arrow_default);
+        IMPORT_IMG(gps_arrow_dark);
+        IMPORT_IMG(gps_arrow_light);
+        IMPORT_IMG(gps_pin);
         IMPORT_IMG(gyroscope);
+        IMPORT_IMG(locate);
+        IMPORT_IMG(map_location);
         IMPORT_IMG(menu);
+        IMPORT_IMG(origin_point);
         IMPORT_IMG(pause);
+        IMPORT_IMG(satellite);
+        IMPORT_IMG(sd_card);
         IMPORT_IMG(start);
         IMPORT_IMG(stop);
+        IMPORT_IMG(storage);
         IMPORT_IMG(system_info);
         IMPORT_IMG(time_info);
         IMPORT_IMG(trip);
+
+        IMPORT_IMG(arm);
+        IMPORT_IMG(bluetooth);
+        IMPORT_IMG(pose6d);
+        IMPORT_IMG(joints);
     }
 
 } /* extern "C" */

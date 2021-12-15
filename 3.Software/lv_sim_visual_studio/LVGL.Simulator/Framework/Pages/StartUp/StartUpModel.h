@@ -1,23 +1,26 @@
 ﻿#ifndef __STARTUP_MODEL_H
 #define __STARTUP_MODEL_H
 
-//#include "Common/DataProc/DataProc.h"
+#include "App/Accounts/Account_Master.h"
 #include "HAL/HAL.h"
 
 namespace Page
 {
 
-    class StartupModel
+class StartupModel
+{
+public:
+    void Init();
+    void DeInit();
+    void PlayMusic(const char* music);
+    void SetEncoderEnable(bool en)
     {
-    public:
-        void Init();
-        void Deinit();
-        void PlayMusic(const char* music);
+        HAL::Encoder_SetEnable(en);
+    }
 
-
-    private:
-       // Account* account;
-    };
+private:
+    Account* account;
+};
 
 }
 

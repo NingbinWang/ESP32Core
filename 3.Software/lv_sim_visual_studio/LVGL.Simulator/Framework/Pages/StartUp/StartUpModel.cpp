@@ -4,22 +4,21 @@ using namespace Page;
 
 void StartupModel::Init()
 {
-    //account = new Account("StartupModel", DataProc::Center(), 0, this);
-    //account->Subscribe("MusicPlayer");
+    account = new Account("StartupModel", AccountSystem::Broker(), 0, this);
 }
 
-void StartupModel::Deinit()
+void StartupModel::DeInit()
 {
-    //if (account)
-   // {
-    //    delete account;
-    //    account = nullptr;
-    //}
+    if (account)
+    {
+        delete account;
+        account = nullptr;
+    }
 }
 
 void StartupModel::PlayMusic(const char* music)
 {
-   // DataProc::MusicPlayer_Info_t info;
-   // info.music = music;
-   // account->Notify("MusicPlayer", &info, sizeof(info));
+    AccountSystem::MusicPlayer_Info_t info;
+    info.music = music;
+    account->Notify("MusicPlayer", &info, sizeof(info));
 }

@@ -5,7 +5,7 @@
 #include "Framework/Pages/AppFactory.h"
 #include "Accounts/Account_Master.h"
 #include "Framework/Resources/ResourcePool.h"
-#include "Pages/StatusBar/StatusBar.h"
+#include "Framework/Pages/StatusBar/StatusBar.h"
 
 
 void App_Init()
@@ -15,13 +15,13 @@ void App_Init()
     Accounts_Init();
     Resource.Init();
     /*----------------------- Pages Init -----------------------*/
-   // StatusBar::Init(lv_layer_top());
-    manager.Install("Template", "Pages/Template");
-    manager.Install("SystemInfos", "Pages/SystemInfos");
-    manager.Install("Startup", "Pages/Startup");
- //   manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
-   // manager.Push("Pages/Startup");
-  //  ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_LOAD);
+    StatusBar::Init(lv_layer_top());
+    manager.Install("Template", "Framework/Pages/Template");
+    manager.Install("SystemInfos", "Framework/Pages/SystemInfos");
+    manager.Install("Startup", "Framework/Pages/Startup");
+    manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
+    manager.Push("Pages/Startup");
+    ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_LOAD);
 
     INIT_DONE();
 }

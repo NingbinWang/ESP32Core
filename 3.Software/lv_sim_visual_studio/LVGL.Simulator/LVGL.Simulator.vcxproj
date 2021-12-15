@@ -31,7 +31,6 @@
     <ClInclude Include="App\App.h" />
     <ClInclude Include="App\Configs\Config.h" />
     <ClInclude Include="App\Configs\Version.h" />
-    <ClInclude Include="App\Pages\StatusBar\StatusBar.h" />
     <ClInclude Include="Framework\Notification\Notification.h" />
     <ClInclude Include="Framework\PageManager\PageBase.h" />
     <ClInclude Include="Framework\PageManager\PageFactory.h" />
@@ -42,6 +41,7 @@
     <ClInclude Include="Framework\Pages\StartUp\StartUp.h" />
     <ClInclude Include="Framework\Pages\StartUp\StartUpModel.h" />
     <ClInclude Include="Framework\Pages\StartUp\StartUpView.h" />
+    <ClInclude Include="Framework\Pages\StatusBar\StatusBar.h" />
     <ClInclude Include="Framework\Pages\_Template\Template.h" />
     <ClInclude Include="Framework\Pages\_Template\TemplateModel.h" />
     <ClInclude Include="Framework\Pages\_Template\TemplateView.h" />
@@ -52,8 +52,18 @@
     <ClInclude Include="Framework\Utils\AccountSystem\AccountBroker.h" />
     <ClInclude Include="Framework\Utils\AccountSystem\AC_Log.h" />
     <ClInclude Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.h" />
-    <ClInclude Include="Framework\Utils\lv_monkey\lv_monkey.h" />
+    <ClInclude Include="Framework\Utils\Filters\FilterBase.h" />
+    <ClInclude Include="Framework\Utils\Filters\Filters.h" />
+    <ClInclude Include="Framework\Utils\Filters\HysteresisFilter.h" />
+    <ClInclude Include="Framework\Utils\Filters\LowpassFilter.h" />
+    <ClInclude Include="Framework\Utils\Filters\MedianFilter.h" />
+    <ClInclude Include="Framework\Utils\Filters\MedianQueueFilter.h" />
+    <ClInclude Include="Framework\Utils\Filters\SlidingFilter.h" />
+    <ClInclude Include="Framework\Utils\lv_ext\lv_anim_timeline_wrapper.h" />
+    <ClInclude Include="Framework\Utils\lv_ext\lv_label_anim_effect.h" />
+    <ClInclude Include="Framework\Utils\lv_ext\lv_obj_ext_func.h" />
     <ClInclude Include="HAL\HAL.h" />
+    <ClInclude Include="HAL\HAL_Def.h" />
     <ClInclude Include="lv_conf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App\Accounts\Account_Master.cpp" />
+    <ClCompile Include="App\Accounts\ACT_IMU.cpp" />
+    <ClCompile Include="App\Accounts\ACT_MusicPlayer.cpp" />
+    <ClCompile Include="App\Accounts\ACT_Power.cpp" />
     <ClCompile Include="App\Accounts\ACT_SysConfig.cpp" />
     <ClCompile Include="App\App.cpp" />
-    <ClCompile Include="App\Pages\StatusBar\StatusBar.cpp" />
     <ClCompile Include="Framework\PageManager\PageManagerAnim.cpp" />
     <ClCompile Include="Framework\PageManager\PageManagerBase.cpp" />
     <ClCompile Include="Framework\PageManager\PageManagerDrag.cpp" />
@@ -82,6 +94,7 @@
     <ClCompile Include="Framework\Pages\StartUp\StartUp.cpp" />
     <ClCompile Include="Framework\Pages\StartUp\StartUpModel.cpp" />
     <ClCompile Include="Framework\Pages\StartUp\StartUpView.cpp" />
+    <ClCompile Include="Framework\Pages\StatusBar\StatusBar.cpp" />
     <ClCompile Include="Framework\Pages\_Template\Template.cpp" />
     <ClCompile Include="Framework\Pages\_Template\TemplateModel.cpp" />
     <ClCompile Include="Framework\Pages\_Template\TemplateView.cpp" />
@@ -91,22 +104,50 @@
     <ClCompile Include="Framework\Resources\Font\font_bahnschrift_17.c" />
     <ClCompile Include="Framework\Resources\Font\font_bahnschrift_32.c" />
     <ClCompile Include="Framework\Resources\Font\font_bahnschrift_65.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_alarm.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_arm.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_battery.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_battery_info.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_bicycle.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_bluetooth.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_compass.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_dark.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_default.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_arrow_light.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_gps_pin.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_gyroscope.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_joints.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_locate.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_map_location.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_menu.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_origin_point.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_pause.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_pose6d.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_satellite.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_sd_card.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_start.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_stop.c" />
+    <ClCompile Include="Framework\Resources\Image\img_src_storage.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_system_info.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_time_info.c" />
     <ClCompile Include="Framework\Resources\Image\img_src_trip.c" />
     <ClCompile Include="Framework\Resources\ResourcePool.cpp" />
     <ClCompile Include="Framework\Utils\AccountSystem\Account.cpp" />
     <ClCompile Include="Framework\Utils\AccountSystem\AccountBroker.cpp" />
-    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.cpp" />
-    <ClCompile Include="Framework\Utils\lv_monkey\lv_monkey.c" />
+    <ClCompile Include="Framework\Utils\AccountSystem\PingPongBuffer\PingPongBuffer.c" />
+    <ClCompile Include="Framework\Utils\lv_ext\lv_anim_timeline_wrapper.c" />
+    <ClCompile Include="Framework\Utils\lv_ext\lv_label_anim_effect.cpp" />
+    <ClCompile Include="Framework\Utils\lv_ext\lv_obj_ext_func.cpp" />
     <ClCompile Include="HAL\HAL.cpp" />
+    <ClCompile Include="HAL\HAL_Audio.cpp" />
+    <ClCompile Include="HAL\HAL_Backlight.cpp" />
+    <ClCompile Include="HAL\HAL_Bluetooth.cpp" />
+    <ClCompile Include="HAL\HAL_Buzz.cpp" />
+    <ClCompile Include="HAL\HAL_Encoder.cpp" />
+    <ClCompile Include="HAL\HAL_I2C_Scan.cpp" />
+    <ClCompile Include="HAL\HAL_IMU.cpp" />
+    <ClCompile Include="HAL\HAL_Power.cpp" />
+    <ClCompile Include="HAL\HAL_SdCard.cpp" />
     <ClCompile Include="LVGL.Simulator.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\99.OpenPorject\github\ESP32Core\3.Software\lv_sim_visual_studio\LVGL.Simulator\App;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
