@@ -2,8 +2,12 @@
 #define _HAL_H_
 #include <stdint.h>
 #include <Arduino.h>
-#include "App/Configs/Config.h"
+#include "Configs/Config.h"
+#ifdef ARDUINO
 #include "lvgl.h"
+#else
+#include "lvgl/lvgl.h"
+#endif
 
 namespace HAL
 {

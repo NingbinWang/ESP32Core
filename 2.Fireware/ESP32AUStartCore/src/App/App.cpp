@@ -3,16 +3,16 @@
 
 #include "Framework/PageManager/PageManager.h"
 #include "Framework/Pages/AppFactory.h"
-#include "Accounts/Account_Master.h"
+//#include "Accounts/Account_Master.h"
 #include "Framework/Resources/ResourcePool.h"
-#include "Pages/StatusBar/StatusBar.h"
+//#include "Pages/StatusBar/StatusBar.h"
 
 
 void App_Init()
 {
     static AppFactory factory;
     static PageManager manager(&factory);
-    Accounts_Init();
+    //Accounts_Init();
     Resource.Init();
     /*----------------------- Pages Init -----------------------*/
    // StatusBar::Init(lv_layer_top());
@@ -28,6 +28,6 @@ void App_Init()
 
 void App_UnInit()
 {
-    ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
+    //ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_SAVE);
 }
 

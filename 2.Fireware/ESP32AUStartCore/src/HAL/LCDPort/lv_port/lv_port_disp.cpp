@@ -1,5 +1,4 @@
-#include "Port/Display.h"
-
+#include "HAL/LCDPort/Display.h"
 #define DISP_HOR_RES         CONFIG_SCREEN_HOR_RES
 #define DISP_VER_RES         CONFIG_SCREEN_VER_RES
 #define DISP_BUF_SIZE        CONFIG_SCREEN_BUFFER_SIZE
@@ -9,12 +8,17 @@ lv_color_t* lv_disp_buf_p;
 
 static lv_disp_draw_buf_t disp_buf;
 static lv_disp_drv_t disp_drv;
+//static lv_indev_drv_t indev_drv;
 
+
+#if LV_USE_LOG != 0
+/* Serial debugging */
 void my_print(lv_log_level_t level, const char* file, uint32_t line, const char* fun, const char* dsc)
 {
-    Serial.printf("%s@%d %s->%s\r\n", file, line, fun, dsc);
+    Serial.printf( "%s(%s)@%d->%s\r\n", file, fun, line, dsc );
     Serial.flush();
 }
+#endif
 
 /**
   * @brief  屏幕刷新回调函数
@@ -43,6 +47,34 @@ static void disp_wait_cb(lv_disp_drv_t* disp_drv)
 //    __wfi();
 }
 
+/*Read the touchpad*/
+/*
+void disp_touchpad_read( lv_indev_drv_t * indev_driver, lv_indev_data_t * data )
+{
+    uint16_t touchX, touchY;
+
+    bool touched = screen->getTouch( &touchX, &touchY, 600 );
+
+    if( !touched )
+    {
+        data->state = LV_INDEV_STATE_REL;
+    }
+    else
+    {
+        data->state = LV_INDEV_STATE_PR;
+
+        //Set the coordinates
+        data->point.x = touchX;
+        data->point.y = touchY;
+
+        Serial.print( "Data x " );
+        Serial.println( touchX );
+
+        Serial.print( "Data y " );
+        Serial.println( touchY );
+    }
+}
+*/
 /**
   * @brief  屏幕初始化
   * @param  无
@@ -50,20 +82,21 @@ static void disp_wait_cb(lv_disp_drv_t* disp_drv)
   */
 void lv_port_disp_init(SCREEN_CLASS* scr)
 {
+    #if LV_USE_LOG != 0
     lv_log_register_print_cb(
         reinterpret_cast<lv_log_print_g_cb_t>(my_print)); /* register print function for debugging */
-
+    #endif
     /* Move the malloc process to Init() to make sure that the largest heap can be used for this buffer.
      *
     lv_disp_buf_p = static_cast<lv_color_t*>(malloc(DISP_BUF_SIZE * sizeof(lv_color_t)));
     if (lv_disp_buf_p == nullptr)
         LV_LOG_WARN("lv_port_disp_init malloc failed!\n");
     */
-
     lv_disp_draw_buf_init(&disp_buf, lv_disp_buf_p, nullptr, DISP_BUF_SIZE);
 
-    /*Initialize the display*/
+    /*Initialize the display*/ 
     lv_disp_drv_init(&disp_drv);
+    //Change the following line to your display resolution
     disp_drv.hor_res = DISP_HOR_RES;
     disp_drv.ver_res = DISP_VER_RES;
     disp_drv.flush_cb = disp_flush_cb;

@@ -5,7 +5,7 @@
 #define VERSION_FIRMWARE_NAME   "[littleVisual]"
 #define VERSION_SOFTWARE        "v1.0"
 #define VERSION_HARDWARE        "v1.0"
-#define VERSION_AUTHOR_NAME     "WNB"
+#define VERSION_AUTHOR_NAME     "AlexKing"
 
 
 #endif
