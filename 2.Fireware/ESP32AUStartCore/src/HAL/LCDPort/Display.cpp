@@ -10,7 +10,7 @@ void TaskLvglUpdate(void* parameter)
     {
         lv_task_handler();
         //lv_timer_handler();
-        // Serial.println("lvgl alive");
+        //Serial.println("lvgl alive");
         delay(5);
     }
 }
@@ -26,7 +26,6 @@ void Port_Init()
     screen.begin();
     screen.setRotation(0);// Landscape orientation, flipped
     screen.fillScreen(TFT_BLACK);
-    screen.setCursor(0,0);
     // lvgl初始化
     lv_init();
     lv_port_disp_init(&screen);
@@ -42,5 +41,6 @@ void Port_Init()
         configMAX_PRIORITIES - 1,
         &handleTaskLvgl);
     // 背光渐亮 
-    HAL::Backlight_SetGradual(500, 1000);
+    HAL::Backlight_ForceLit(1);//由于开发板上没有设计相关的电阻来分压，暂时使用常亮的方案 后续开启PWM需要在HAL中开启初始化
+    //HAL::Backlight_SetGradual(500, 1000);
 }

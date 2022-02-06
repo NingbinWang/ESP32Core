@@ -21,7 +21,7 @@ void HAL::Init()
     if (lv_disp_buf_p == nullptr)
         LV_LOG_WARN("lv_port_disp_init malloc failed!\n");
     //背光初始化
-    HAL::Backlight_Init();
+   // HAL::Backlight_Init();
 }
 void HAL::Update()
 {

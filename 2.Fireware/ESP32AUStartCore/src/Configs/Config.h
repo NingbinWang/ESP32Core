@@ -3,8 +3,8 @@
 
 //Screen
 // Only define one driver, the other ones must be commented out
-//#define ILI9341_DRIVER       // Generic driver for common displays
-#define ILI9341_2_DRIVER     // Alternative ILI9341 driver, see https://github.com/Bodmer/TFT_eSPI/issues/1172
+#define ILI9341_DRIVER       // Generic driver for common displays
+//#define ILI9341_2_DRIVER     // Alternative ILI9341 driver, see https://github.com/Bodmer/TFT_eSPI/issues/1172
 //#define ST7735_DRIVER      // Define additional parameters below for this display
 //#define ILI9163_DRIVER     // Define additional parameters below for this display
 //#define S6D02A1_DRIVER
@@ -24,7 +24,8 @@
 //#define SSD1963_800ALT_DRIVER
 //#define ILI9225_DRIVER
 //#define GC9A01_DRIVER
-// Generic ESP32 setup
+
+//Screen ESP32 setup
 #define CONFIG_SCREEN_CS_PIN        5
 #define CONFIG_SCREEN_DC_PIN        2
 #define CONFIG_SCREEN_RST_PIN       4
@@ -36,7 +37,8 @@
 #define CONFIG_SCREEN_HOR_RES       240
 #define CONFIG_SCREEN_VER_RES       320
 #define CONFIG_SCREEN_BUFFER_SIZE   (CONFIG_SCREEN_HOR_RES * CONFIG_SCREEN_VER_RES /2)
-
+//Screen Statusbar height
+#define STATUS_BAR_HEIGHT 10
 
 
 #endif // !_CONFIG_H_

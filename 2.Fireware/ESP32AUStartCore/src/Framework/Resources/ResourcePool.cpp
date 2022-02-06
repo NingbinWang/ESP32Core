@@ -35,6 +35,11 @@ do{\
         IMPORT_IMG(system_info);
         IMPORT_IMG(time_info);
         IMPORT_IMG(trip);
+        IMPORT_IMG(satellite);
+        IMPORT_IMG(bluetooth);
+        IMPORT_IMG(battery);
+        IMPORT_IMG(battery_info);
+        IMPORT_IMG(sd_card);
     }
 
 } /* extern "C" */

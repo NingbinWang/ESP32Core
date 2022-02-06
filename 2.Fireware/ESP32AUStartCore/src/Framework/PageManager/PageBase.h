@@ -5,7 +5,7 @@
 #include "lvgl.h"
 #else
 #include "lvgl/lvgl.h"
-#endif // PLATFROMIO
+#endif
 
 // Generate stash area data
 #define PAGE_STASH_MAKE(data) {&(data), sizeof(data)}

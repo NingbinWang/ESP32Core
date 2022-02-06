@@ -8,7 +8,6 @@ lv_color_t* lv_disp_buf_p;
 
 static lv_disp_draw_buf_t disp_buf;
 static lv_disp_drv_t disp_drv;
-//static lv_indev_drv_t indev_drv;
 
 
 #if LV_USE_LOG != 0
@@ -47,34 +46,6 @@ static void disp_wait_cb(lv_disp_drv_t* disp_drv)
 //    __wfi();
 }
 
-/*Read the touchpad*/
-/*
-void disp_touchpad_read( lv_indev_drv_t * indev_driver, lv_indev_data_t * data )
-{
-    uint16_t touchX, touchY;
-
-    bool touched = screen->getTouch( &touchX, &touchY, 600 );
-
-    if( !touched )
-    {
-        data->state = LV_INDEV_STATE_REL;
-    }
-    else
-    {
-        data->state = LV_INDEV_STATE_PR;
-
-        //Set the coordinates
-        data->point.x = touchX;
-        data->point.y = touchY;
-
-        Serial.print( "Data x " );
-        Serial.println( touchX );
-
-        Serial.print( "Data y " );
-        Serial.println( touchY );
-    }
-}
-*/
 /**
   * @brief  屏幕初始化
   * @param  无
