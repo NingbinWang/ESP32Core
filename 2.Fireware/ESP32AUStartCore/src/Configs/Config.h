@@ -38,8 +38,25 @@
 #define CONFIG_SCREEN_VER_RES       320
 #define CONFIG_SCREEN_BUFFER_SIZE   (CONFIG_SCREEN_HOR_RES * CONFIG_SCREEN_VER_RES /2)
 //Screen Statusbar height
-#define STATUS_BAR_HEIGHT 10
+#define STATUS_BAR_HEIGHT               15
 //StartUp name config
 #define STARTUP_LABLE "TIANYA"
+
+// IMU
+#define CONFIG_IMU_INT1_PIN         32
+#define CONFIG_IMU_INT2_PIN         33
+
+// I2C
+#define CONFIG_MCU_SDA_PIN          32
+#define CONFIG_MCU_SCL_PIN          33
+
+// SD CARD 
+#define CONFIG_SD_SPI               SPI_SD
+#define CONFIG_SD_CD_PIN            -1
+#define CONFIG_SD_MOSI_PIN          PB15
+#define CONFIG_SD_MISO_PIN          PB14
+#define CONFIG_SD_SCK_PIN           PB13
+#define CONFIG_SD_CS_PIN            15
+#define CONFIG_SD_DET_PIN           22
 
 #endif // !_CONFIG_H_

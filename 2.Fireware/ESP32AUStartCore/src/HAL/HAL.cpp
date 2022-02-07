@@ -1,5 +1,6 @@
 #include "HAL.h"
 #include "Configs/Version.h"
+#include "Adafruit_MPU6050.h"
 
 //screen
 #define DISP_HOR_RES         CONFIG_SCREEN_HOR_RES
@@ -20,6 +21,9 @@ void HAL::Init()
     lv_disp_buf_p = static_cast<lv_color_t*>(malloc(DISP_BUF_SIZE * sizeof(lv_color_t)));
     if (lv_disp_buf_p == nullptr)
         LV_LOG_WARN("lv_port_disp_init malloc failed!\n");
+    //I2C扫描
+    HAL::I2C_Init(true);
+    HAL::IMU_Init();
     //背光初始化
    // HAL::Backlight_Init();
 }
@@ -27,5 +31,6 @@ void HAL::Update()
 {
    // lv_timer_handler();
   //  Serial.println("lvgl alive");
-    delay(20);
+    HAL::IMU_Update();
+    delay(1000);
 }
