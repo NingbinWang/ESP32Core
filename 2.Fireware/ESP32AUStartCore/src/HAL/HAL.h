@@ -1,9 +1,9 @@
 #ifndef _HAL_H_
 #define _HAL_H_
 #include <stdint.h>
-#include <Arduino.h>
 #include "Configs/Config.h"
 #ifdef ARDUINO
+#include <Arduino.h>
 #include "lvgl.h"
 #else
 #include "lvgl/lvgl.h"

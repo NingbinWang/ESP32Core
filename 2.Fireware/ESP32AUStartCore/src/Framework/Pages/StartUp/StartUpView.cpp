@@ -1,4 +1,5 @@
 ﻿#include "StartupView.h"
+#include "Configs/Config.h"
 
 using namespace Page;
 
@@ -23,7 +24,7 @@ void StartupView::Create(lv_obj_t* root)
     lv_obj_t* label = lv_label_create(cont);
     //lv_obj_set_style_text_font(label, ResourcePool::GetFont("agencyb_36"), 0);
     lv_obj_set_style_text_color(label, lv_color_white(), 0);
-    lv_label_set_text(label, "ESP32CORE");
+    lv_label_set_text(label, STARTUP_LABLE);
     lv_obj_center(label);
     ui.labelLogo = label;
 

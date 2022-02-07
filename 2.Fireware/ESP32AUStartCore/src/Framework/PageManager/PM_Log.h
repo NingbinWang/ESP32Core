@@ -10,6 +10,9 @@
 #  define PM_LOG_WARN(format, ...)  _PM_LOG("[Warn] "format, ##__VA_ARGS__)
 #  define PM_LOG_ERROR(format, ...) _PM_LOG("[Error] "format, ##__VA_ARGS__)
 #else
+#ifdef ARDUINO
+#include <Arduino.h>
+#endif
 #  define PM_LOG_INFO(...)
 #  define PM_LOG_WARN(...)
 #  define PM_LOG_ERROR(...)

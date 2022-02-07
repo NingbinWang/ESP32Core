@@ -9,5 +9,6 @@
 #endif
 
 void Framework_Init(void);
+void Framework_work(void);
 
 #endif

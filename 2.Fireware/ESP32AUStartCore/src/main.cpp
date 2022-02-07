@@ -9,6 +9,7 @@ void setup() {
    Port_Init();
    Framework_Init();
    //App_Init();
+   Framework_work();
 }
 
 void loop() {

@@ -39,6 +39,7 @@
 #define CONFIG_SCREEN_BUFFER_SIZE   (CONFIG_SCREEN_HOR_RES * CONFIG_SCREEN_VER_RES /2)
 //Screen Statusbar height
 #define STATUS_BAR_HEIGHT 10
-
+//StartUp name config
+#define STARTUP_LABLE "TIANYA"
 
 #endif // !_CONFIG_H_

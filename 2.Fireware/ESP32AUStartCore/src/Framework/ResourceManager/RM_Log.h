@@ -10,7 +10,7 @@
 #  define RM_LOG_WARN(format, ...)  _RM_LOG("[Warn] "format, ##__VA_ARGS__)
 #  define RM_LOG_ERROR(format, ...) _RM_LOG("[Error] "format, ##__VA_ARGS__)
 #else
-#  define RM_LOG_INFO(...)
+#  define RM_LOG_INFO(...)    
 #  define RM_LOG_WARN(...)
 #  define RM_LOG_ERROR(...)
 #endif

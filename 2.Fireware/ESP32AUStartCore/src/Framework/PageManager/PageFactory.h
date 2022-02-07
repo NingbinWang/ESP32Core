@@ -5,10 +5,8 @@
 class PageFactory
 {
 public:
-    virtual PageBase* CreatePage(const char* name)
-    {
-        return nullptr;//空指针
-    }
+    virtual PageBase* CreatePage(const char* name);
+private:
 };
 
 #endif // !_PAGEFACTORY_H_

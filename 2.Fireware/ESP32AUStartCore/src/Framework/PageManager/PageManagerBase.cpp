@@ -78,14 +78,23 @@ PageBase* PageManager::Install(const char* className, const char* appName)
 {
     if (Factory == nullptr)
     {
+        #ifdef ARDUINO
+        Serial.printf("Factory is not regsite, can't install page\n");
+        #else
         PM_LOG_ERROR("Factory is not regsite, can't install page");
+        #endif
+        
         return nullptr;
     }
 
     PageBase* base = Factory->CreatePage(className);
     if (base == nullptr)
     {
+        #ifdef ARDUINO
+        Serial.printf("Factory has not %s \n",className);
+        #else
         PM_LOG_ERROR("Factory has not %s", className);
+        #endif
         return nullptr;
     }
 
@@ -102,8 +111,11 @@ PageBase* PageManager::Install(const char* className, const char* appName)
         PM_LOG_WARN("appName has not set");
         appName = className;
     }
-
+    #ifdef ARDUINO
+    Serial.printf("Install Page[class = %s, name = %s]", className, appName);
+    #else
     PM_LOG_INFO("Install Page[class = %s, name = %s]", className, appName);
+    #endif
     Register(base, appName);
 
     return base;
@@ -116,7 +128,11 @@ PageBase* PageManager::Install(const char* className, const char* appName)
   */
 bool PageManager::Uninstall(const char* appName)
 {
+    #ifdef ARDUINO
+    Serial.printf("Page(%s) uninstall...", appName);
+    #else
     PM_LOG_INFO("Page(%s) uninstall...", appName);
+    #endif
 
     PageBase* base = FindPageInPool(appName);
     if (base == nullptr)
