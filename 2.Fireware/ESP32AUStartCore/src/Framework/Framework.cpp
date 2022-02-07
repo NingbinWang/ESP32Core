@@ -8,6 +8,7 @@ void Framework_Init(void)
     static PageManager manager(&factory);
     Resource.Init();
     StatusBar::Init(lv_layer_top());
+    manager.Install("SystemInfos", "Pages/SystemInfos");
     manager.Install("Startup", "Pages/Startup");
     manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
     manager.Push("Pages/Startup");
