@@ -8,7 +8,7 @@ void StartupModel::Init()
     //account->Subscribe("MusicPlayer");
 }
 
-void StartupModel::Deinit()
+void StartupModel::DeInit()
 {
     //if (account)
    // {

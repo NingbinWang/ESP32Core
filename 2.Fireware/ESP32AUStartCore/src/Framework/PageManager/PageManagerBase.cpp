@@ -111,11 +111,7 @@ PageBase* PageManager::Install(const char* className, const char* appName)
         PM_LOG_WARN("appName has not set");
         appName = className;
     }
-    #ifdef ARDUINO
-    Serial.printf("Install Page[class = %s, name = %s]\n", className, appName);
-    #else
     PM_LOG_INFO("Install Page[class = %s, name = %s]", className, appName);
-    #endif
     Register(base, appName);
 
     return base;

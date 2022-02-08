@@ -11,7 +11,7 @@ namespace Page
     {
     public:
         void Init();
-        void Deinit();
+    void DeInit();
         void PlayMusic(const char* music);
 
 

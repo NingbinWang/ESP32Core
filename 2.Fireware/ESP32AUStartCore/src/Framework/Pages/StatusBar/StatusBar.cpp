@@ -3,6 +3,8 @@
 #include "HAL/HAL.h"
 #include "Framework/Resources/ResourcePool.h"
 #include "Configs/Config.h"
+#include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
+
 #define BATT_USAGE_HEIGHT (lv_obj_get_style_height(ui.battery.img, 0) - 6)
 #define BATT_USAGE_WIDTH  (lv_obj_get_style_width(ui.battery.img, 0) - 4)
 
@@ -289,7 +291,7 @@ ACCOUNT_INIT_DEF(StatusBar)
 
     actStatusBar = account;
 }
-
+*/
 
 void StatusBar::Appear(bool en)
 {
@@ -314,4 +316,3 @@ void StatusBar::Appear(bool en)
     lv_anim_set_early_apply(&a, true);
     lv_anim_start(&a);
 }
-*/

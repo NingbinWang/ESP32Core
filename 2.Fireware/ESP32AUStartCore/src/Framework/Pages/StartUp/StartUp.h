@@ -26,9 +26,7 @@ namespace Page
 
     private:
         static void onTimer(lv_timer_t* timer);
-        static void onEvent(lv_event_t* event);
 
-    private:
         StartupView View;
         StartupModel Model;
     };

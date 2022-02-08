@@ -12,10 +12,14 @@
 #else
 #ifdef ARDUINO
 #include <Arduino.h>
-#endif
-#  define PM_LOG_INFO(...)
+#  define PM_LOG_INFO(...)      do{Serial.printf("[Info] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#  define PM_LOG_WARN(...)      do{Serial.printf("[Warn] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#  define PM_LOG_ERROR(...)     do{Serial.printf("[Error] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#else
+#  define PM_LOG_INFO(...)     
 #  define PM_LOG_WARN(...)
 #  define PM_LOG_ERROR(...)
+#endif
 #endif
 
 

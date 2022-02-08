@@ -107,7 +107,7 @@ void HAL::IMU_Update()
     sensors_event_t a, g, temp,ecompass;
 
     if(mpu_enable == 0){
-        Serial.println("MPU6050 no found");
+       // Serial.println("MPU6050 no found");
         imuInfo.ax = 0;
         imuInfo.ay = 0;
         imuInfo.az = 0;
