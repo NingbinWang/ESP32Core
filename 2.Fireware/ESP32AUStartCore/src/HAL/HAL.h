@@ -25,6 +25,10 @@ namespace HAL
     // IMU
     void IMU_Init();
     void IMU_Update();
+    // Bluetooth
+    bool BT_Init();
+    void BT_Update();
+    bool BluetoothConnected();
 }
 
 

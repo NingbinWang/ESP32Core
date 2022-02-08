@@ -23,8 +23,11 @@ void HAL::Init()
         LV_LOG_WARN("lv_port_disp_init malloc failed!\n");
     //I2C扫描
     HAL::I2C_Init(true);
+    //IMU初始化
     HAL::IMU_Init();
-    //背光初始化
+    //蓝牙初始化
+     HAL::BT_Init();
+    //背光ADC初始化
    // HAL::Backlight_Init();
 }
 void HAL::Update()
@@ -32,5 +35,6 @@ void HAL::Update()
    // lv_timer_handler();
   //  Serial.println("lvgl alive");
     HAL::IMU_Update();
+    HAL::BT_Update();
     delay(1000);
 }

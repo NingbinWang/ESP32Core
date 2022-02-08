@@ -42,6 +42,9 @@
 //StartUp name config
 #define STARTUP_LABLE "TIANYA"
 
+//bluetooth
+#define CONFIG_BLUETOOTH_NAME  "TIANYA"
+
 // IMU
 #define CONFIG_IMU_INT1_PIN         32
 #define CONFIG_IMU_INT2_PIN         33
