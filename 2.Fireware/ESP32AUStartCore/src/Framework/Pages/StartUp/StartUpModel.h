@@ -1,7 +1,7 @@
 ﻿#ifndef __STARTUP_MODEL_H
 #define __STARTUP_MODEL_H
 
-//#include "Common/DataProc/DataProc.h"
+#include "Framework/Notification/Notification.h"
 #include "HAL/HAL.h"
 
 namespace Page
@@ -16,7 +16,7 @@ namespace Page
 
 
     private:
-       // Account* account;
+        Notification* account;
     };
 
 }

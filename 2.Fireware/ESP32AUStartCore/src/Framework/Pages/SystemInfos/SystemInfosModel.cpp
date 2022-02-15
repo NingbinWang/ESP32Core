@@ -1,4 +1,5 @@
 #include "SystemInfosModel.h"
+#include "Framework/Notification/Notification.h"
 #include <stdio.h>
 
 
@@ -6,7 +7,7 @@ using namespace Page;
 
 void SystemInfosModel::Init()
 {
-   // account = new Account("SystemInfosModel", AccountSystem::Broker(), 0, this);
+    //account = new Notification("SystemInfosModel", AccountSystem::Broker(), 0, this);
 
     //account->Subscribe("IMU");
     //account->Subscribe("Power");

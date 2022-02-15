@@ -62,4 +62,22 @@
 #define CONFIG_SD_CS_PIN            15
 #define CONFIG_SD_DET_PIN           22
 
+// Battery 
+#define CONFIG_BAT_DET_PIN          37
+#define CONFIG_BAT_CHG_DET_PIN      38
+
+// Buzzer
+#define CONFIG_BUZZ_PIN             25
+#define CONFIG_BUZZ_CHANNEL         2
+#define CONFIG_SOUND_ENABLE_DEFAULT false
+
+// Encoder 
+#define CONFIG_ENCODER_B_PIN        34
+#define CONFIG_ENCODER_A_PIN        35
+#define CONFIG_ENCODER_PUSH_PIN     27
+
+// Power
+#define CONFIG_POWER_EN_PIN         21
+
+
 #endif // !_CONFIG_H_

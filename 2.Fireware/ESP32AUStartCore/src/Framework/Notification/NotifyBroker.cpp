@@ -1,7 +1,7 @@
-﻿#include "AccountBroker.h"
-#include "AC_Log.h"
-#include <string>
+#include "NotifyBroker.h"
+#include <string.h>
 #include <algorithm>
+#include "Notifylog.h"
 
 /* Configure whether to automatically clear all accounts */
 #define DC_USE_AUTO_CLOSE 0
@@ -11,7 +11,7 @@
   * @param  name: The name of the data center
   * @retval None
   */
-AccountBroker::AccountBroker(const char* name)
+NotifyBroker::NotifyBroker(const char* name)
     : AccountMaster(name, this)
 {
     Name = name;
@@ -22,7 +22,7 @@ AccountBroker::AccountBroker(const char* name)
   * @param  None
   * @retval None
   */
-AccountBroker::~AccountBroker()
+NotifyBroker::~NotifyBroker()
 {
 #if DC_USE_AUTO_CLOSE
     DC_LOG_INFO("DataCenter[%s] closing...", Name);
@@ -44,7 +44,7 @@ AccountBroker::~AccountBroker()
   * @param  id: Account ID
   * @retval If the search is successful, return the pointer of the account
   */
-Account* AccountBroker::SearchAccount(const char* id)
+Notification* NotifyBroker::SearchAccount(const char* id)
 {
     return Find(&AccountPool, id);
 }
@@ -55,9 +55,9 @@ Account* AccountBroker::SearchAccount(const char* id)
   * @param  id:  Account ID
   * @retval If the search is successful, return the pointer of the account
   */
-Account* AccountBroker::Find(std::vector<Account*>* vec, const char* id)
+Notification* NotifyBroker::Find(std::vector<Notification*>* vec, const char* id)
 {
-    for (auto iter : *vec)
+    for(auto iter : *vec)
     {
         if (strcmp(id, iter->ID) == 0)
         {
@@ -72,7 +72,7 @@ Account* AccountBroker::Find(std::vector<Account*>* vec, const char* id)
   * @param  account: Pointer to account
   * @retval If the addition is successful, return true
   */
-bool AccountBroker::AddAccount(Account* account)
+bool NotifyBroker::AddAccount(Notification* account)
 {
     if (account == &AccountMaster)
     {
@@ -97,7 +97,7 @@ bool AccountBroker::AddAccount(Account* account)
   * @param  account: Pointer to account
   * @retval Return true if the removal is successful
   */
-bool AccountBroker::RemoveAccount(Account* account)
+bool NotifyBroker::RemoveAccount(Notification* account)
 {
     return Remove(&AccountPool, account);
 }
@@ -108,7 +108,7 @@ bool AccountBroker::RemoveAccount(Account* account)
   * @param  id:  Account ID
   * @retval Return true if the removal is successful
   */
-bool AccountBroker::Remove(std::vector<Account*>* vec, Account* account)
+bool NotifyBroker::Remove(std::vector<Notification*>* vec, Notification* account)
 {
     auto iter = std::find(vec->begin(), vec->end(), account);
 
@@ -128,7 +128,7 @@ bool AccountBroker::Remove(std::vector<Account*>* vec, Account* account)
   * @param  None
   * @retval Number of accounts
   */
-uint32_t AccountBroker::GetAccountLen()
+uint32_t NotifyBroker::GetAccountLen()
 {
     return AccountPool.size();
 }

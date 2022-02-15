@@ -1,17 +1,18 @@
 ﻿#include "StartupModel.h"
 
+
 using namespace Page;
 
 void StartupModel::Init()
 {
-    //account = new Account("StartupModel", DataProc::Center(), 0, this);
+    //account = new Notification("StartupModel", AccountSystem::Broker(), 0, this);
     //account->Subscribe("MusicPlayer");
 }
 
 void StartupModel::DeInit()
 {
     //if (account)
-   // {
+    //{
     //    delete account;
     //    account = nullptr;
     //}

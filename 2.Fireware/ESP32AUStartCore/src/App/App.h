@@ -5,7 +5,7 @@
 #include "lvgl.h"
 #else
 #include "lvgl/lvgl.h"
-#endif // PLATFROMIO
+#endif
 
 #include "Configs/Config.h"
 #define ACCOUNT_SEND_NOTIFY_CMD(ACT, CMD)\
@@ -17,20 +17,6 @@ do{\
 }while(0)
 
 
-#ifdef PLATFROMIO
-#include "Port/Display.h"
-#define INIT_DONE() \
-do{                 \
-    xTaskNotifyGive(handleTaskLvgl); \
-}while(0) \
-
-#else
-#define INIT_DONE() \
-do{                 \
-}while(0) \
-
 void App_Init();
-
-#endif
 
 #endif

@@ -63,7 +63,5 @@ void Startup::onViewDidUnload()
 void Startup::onTimer(lv_timer_t* timer)
 {
     Startup* instance = (Startup*)timer->user_data;
-
     instance->Manager->Push("Pages/SystemInfos");
-    //instance->Manager->Push("Pages/Template");
 }

@@ -4,10 +4,13 @@
 #include "Framework/Resources/ResourcePool.h"
 #include "Configs/Config.h"
 #include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
+#include "Framework/Notification/Notification.h"
+#include "Framework/Notification/Systeminfo_Def.h"
 
 #define BATT_USAGE_HEIGHT (lv_obj_get_style_height(ui.battery.img, 0) - 6)
 #define BATT_USAGE_WIDTH  (lv_obj_get_style_width(ui.battery.img, 0) - 4)
 
+static Notification* actStatusBar;
 
 static void StatusBar_AnimCreate(lv_obj_t* contBatt);
 
@@ -33,20 +36,21 @@ struct
         lv_obj_t* label;
     } battery;
 } ui;
+
 /*
-static int onEvent(Account* account, Account::EventParam_t* param)
+static int onEvent(Notification* account, Notification::EventParam_t* param)
 {
-    if (param->event != Account::EVENT_NOTIFY)
+    if (param->event != Notification::EVENT_NOTIFY)
     {
-        return Account::ERROR_UNSUPPORTED_REQUEST;
+        return Notification::ERROR_UNSUPPORTED_REQUEST;
     }
 
-    if (param->size != sizeof(AccountSystem::StatusBar_Info_t))
+    if (param->size != sizeof(SystemInfoDef::StatusBar_Info_t))
     {
-        return Account::ERROR_SIZE_MISMATCH;
+        return Notification::ERROR_SIZE_MISMATCH;
     }
 
-    AccountSystem::StatusBar_Info_t* info = (AccountSystem::StatusBar_Info_t*)param->data_p;
+    SystemInfoDef::StatusBar_Info_t* info = (SystemInfoDef::StatusBar_Info_t*)param->data_p;
 
     if (info->showLabelRec)
     {
@@ -65,7 +69,7 @@ static int onEvent(Account* account, Account::EventParam_t* param)
 
     return 0;
 }
-
+*/
 static void StatusBar_ConBattSetOpa(lv_obj_t* obj, int32_t opa)
 {
     lv_obj_set_style_opa(obj, opa, 0);
@@ -105,11 +109,11 @@ static void StatusBar_AnimCreate(lv_obj_t* contBatt)
     lv_anim_set_ready_cb(&a, StatusBar_onAnimHeightFinish);
     lv_anim_start(&a);
 }
-*/
+
 static void StatusBar_Update(lv_timer_t* timer)
 {
-    /*
-    AccountSystem::Storage_Basic_Info_t sdInfo;
+  /*
+    SystemInfoDef::Storage_Basic_Info_t sdInfo;
     actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
     sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
 

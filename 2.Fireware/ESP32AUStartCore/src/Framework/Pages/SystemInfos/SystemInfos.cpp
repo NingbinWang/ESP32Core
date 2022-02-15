@@ -1,5 +1,7 @@
 #include "SystemInfos.h"
 #include "Configs/Version.h"
+#include "Framework/Pages/StatusBar/StatusBar.h"
+#include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
 
 using namespace Page;
 
@@ -78,17 +80,17 @@ void SystemInfos::Update()
 {
 	char buf[64];
 
-	/* Joints */
-	Model.GetJointsInfo(buf, sizeof(buf));
-	View.SetJoints(buf);
+	// Joints 
+	//Model.GetJointsInfo(buf, sizeof(buf));
+	//View.SetJoints(buf);
 
-	/* Pose6D */
-	Model.GetPose6DInfo(buf, sizeof(buf));
-	View.SetPose6D(buf);
+	// Pose6D 
+	//Model.GetPose6DInfo(buf, sizeof(buf));
+	//View.SetPose6D(buf);
 
-	/* IMU */
-	//Model.GetIMUInfo(buf, sizeof(buf));
-	//View.SetIMU(buf);
+	// IMU
+	Model.GetIMUInfo(buf, sizeof(buf));
+	View.SetIMU(buf);
 
 	/* Power */
 	//int usage;
@@ -106,7 +108,7 @@ void SystemInfos::Update()
 		VERSION_FILESYSTEM
 	);
     */
-	/* System */
+	//System 
 	View.SetSystem(
 		VERSION_FIRMWARE_NAME " " VERSION_SOFTWARE,
 		VERSION_AUTHOR_NAME,

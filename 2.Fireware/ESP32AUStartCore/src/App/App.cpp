@@ -3,27 +3,14 @@
 
 #include "Framework/PageManager/PageManager.h"
 #include "Framework/Pages/AppFactory.h"
-//#include "Accounts/Account_Master.h"
-#include "Framework/Resources/ResourcePool.h"
-//#include "Pages/StatusBar/StatusBar.h"
-
+#include "Accounts/Account_Master.h"
 
 void App_Init()
 {
-    static AppFactory factory;
-    static PageManager manager(&factory);
-    //Accounts_Init();
-    Resource.Init();
-    /*----------------------- Pages Init -----------------------*/
-   // StatusBar::Init(lv_layer_top());
-    manager.Install("Template", "Pages/Template");
-    manager.Install("SystemInfos", "Pages/SystemInfos");
-    manager.Install("Startup", "Pages/Startup");
- //   manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
-   // manager.Push("Pages/Startup");
-  //  ACCOUNT_SEND_NOTIFY_CMD(SysConfig, SYSCONFIG_CMD_LOAD);
-
-    INIT_DONE();
+    static AppFactory appfactory;
+    static PageManager manager(&appfactory);
+    Accounts_Init();
+    //manager.Install("Cortana", "Pages/Cortana");
 }
 
 void App_UnInit()
