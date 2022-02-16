@@ -5,71 +5,13 @@
 #include "Configs/Config.h"
 #include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
 #include "Framework/Notification/Notification.h"
-#include "Framework/Notification/Systeminfo_Def.h"
+#include "Framework/Notification/SystemNotify/Systeminfo_Def.h"
 
 #define BATT_USAGE_HEIGHT (lv_obj_get_style_height(ui.battery.img, 0) - 6)
 #define BATT_USAGE_WIDTH  (lv_obj_get_style_width(ui.battery.img, 0) - 4)
 
-static Notification* actStatusBar;
-
 static void StatusBar_AnimCreate(lv_obj_t* contBatt);
 
-struct
-{
-    lv_obj_t* cont;
-
-    struct
-    {
-        lv_obj_t* img;
-        lv_obj_t* label;
-    } satellite;
-
-    lv_obj_t* imgSD;
-    lv_obj_t* imgBT;
-    lv_obj_t* labelClock;
-    lv_obj_t* labelRec;
-
-    struct
-    {
-        lv_obj_t* img;
-        lv_obj_t* objUsage;
-        lv_obj_t* label;
-    } battery;
-} ui;
-
-/*
-static int onEvent(Notification* account, Notification::EventParam_t* param)
-{
-    if (param->event != Notification::EVENT_NOTIFY)
-    {
-        return Notification::ERROR_UNSUPPORTED_REQUEST;
-    }
-
-    if (param->size != sizeof(SystemInfoDef::StatusBar_Info_t))
-    {
-        return Notification::ERROR_SIZE_MISMATCH;
-    }
-
-    SystemInfoDef::StatusBar_Info_t* info = (SystemInfoDef::StatusBar_Info_t*)param->data_p;
-
-    if (info->showLabelRec)
-    {
-        lv_obj_clear_flag(ui.labelRec, LV_OBJ_FLAG_HIDDEN);
-        const char* str = info->labelRecStr;
-
-        if (str)
-        {
-            lv_label_set_text(ui.labelRec, str);
-        }
-    }
-    else
-    {
-        lv_obj_add_flag(ui.labelRec, LV_OBJ_FLAG_HIDDEN);
-    }
-
-    return 0;
-}
-*/
 static void StatusBar_ConBattSetOpa(lv_obj_t* obj, int32_t opa)
 {
     lv_obj_set_style_opa(obj, opa, 0);
@@ -112,16 +54,16 @@ static void StatusBar_AnimCreate(lv_obj_t* contBatt)
 
 static void StatusBar_Update(lv_timer_t* timer)
 {
-  /*
-    SystemInfoDef::Storage_Basic_Info_t sdInfo;
-    actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
-    sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
+ 
+   // SystemInfoDef::Storage_Basic_Info_t sdInfo;
+    //actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
+    //sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
 
     HAL::BluetoothConnected() ? lv_obj_clear_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN);
 
     // battery 
     HAL::Power_Info_t power;
-    actStatusBar->Pull("Power", &power, sizeof(power));
+   // actStatusBar->Pull("Power", &power, sizeof(power));
     lv_label_set_text_fmt(ui.battery.label, "%d", power.usage);
 
     bool Is_BattCharging = power.isCharging;
@@ -146,7 +88,7 @@ static void StatusBar_Update(lv_timer_t* timer)
         lv_coord_t height = lv_map(power.usage, 0, 100, 0, BATT_USAGE_HEIGHT);
         lv_obj_set_height(contBatt, height);
     }
-    */
+    
 }
 
 static lv_obj_t* StatusBar_Create(lv_obj_t* par)
@@ -154,8 +96,8 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     lv_obj_t* cont = lv_obj_create(par);
     lv_obj_remove_style_all(cont);
 
-    lv_obj_set_size(cont, LV_HOR_RES, STATUS_BAR_HEIGHT);//拉伸至最大
-    lv_obj_set_y(cont, STATUS_BAR_HEIGHT);//设置状态栏的位置
+    lv_obj_set_size(cont, LV_HOR_RES, CONFIG_STATUS_BAR_HEIGHT);//拉伸至最大
+    lv_obj_set_y(cont, CONFIG_STATUS_BAR_HEIGHT);//设置状态栏的位置
 
     /* style1 */
     lv_obj_set_style_bg_opa(cont, LV_OPA_TRANSP, LV_STATE_DEFAULT);
@@ -190,39 +132,52 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     lv_style_init(&style);
     lv_style_set_text_color(&style, lv_color_white());
     lv_style_set_text_font(&style, Resource.GetFont("bahnschrift_13"));
+    lv_obj_t* img;
+    lv_obj_t* label;
+//  satellite
+    if(CONFIG_STATUSBAR_SHOW_STATELLITE)
+    {
+      img = lv_img_create(cont);
+      lv_img_set_src(img, Resource.GetImage("satellite"));
+      lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, 0);
+      ui.satellite.img = img;
 
-//  satellite 
-    lv_obj_t* img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("satellite"));
-    lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, 0);
-    ui.satellite.img = img;
-
-    lv_obj_t* label = lv_label_create(cont);
-    lv_obj_add_style(label, &style, 0);
-    lv_obj_align_to(label, ui.satellite.img, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
-    lv_label_set_text(label, "0");
-    ui.satellite.label = label;
+       lv_obj_t* label = lv_label_create(cont);
+       lv_obj_add_style(label, &style, 0);
+       lv_obj_align_to(label, ui.satellite.img, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
+       lv_label_set_text(label, "0");
+       ui.satellite.label = label;
+    }
 
 // sd card 
-    img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("sd_card"));
-    lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
-    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-    ui.imgSD = img;
+    if(CONFIG_STATUSBAR_SHOW_SDCARD)
+    {
+      img = lv_img_create(cont);
+      lv_img_set_src(img, Resource.GetImage("sd_card"));
+      lv_obj_align(img, LV_ALIGN_LEFT_MID, 14, -1);
+      lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);//默认隐藏
+      ui.imgSD = img;
+    }
 
 // bluetooth 
-    img = lv_img_create(cont);
-    lv_img_set_src(img, Resource.GetImage("bluetooth"));
-    lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
-    lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
-    ui.imgBT = img;
+    if(CONFIG_STATUSBAR_SHOW_BLUETOOTH)
+    {
+      img = lv_img_create(cont);
+      lv_img_set_src(img, Resource.GetImage("bluetooth"));
+      lv_obj_align(img, LV_ALIGN_LEFT_MID, 32, 0);
+      lv_obj_add_flag(img, LV_OBJ_FLAG_HIDDEN);
+      ui.imgBT = img;
+    }
 
 // clock
-    label = lv_label_create(cont);
-    lv_obj_add_style(label, &style, 0);
-    lv_label_set_text(label, "00:00");
-    lv_obj_center(label);
-    ui.labelClock = label;
+   if(CONFIG_STATUSBAR_SHOW_TIME)
+   {
+     label = lv_label_create(cont);
+     lv_obj_add_style(label, &style, 0);
+     lv_label_set_text(label, "00:00");
+     lv_obj_center(label);
+     ui.labelClock = label;
+   }
 
 // recorder 
     label = lv_label_create(cont);
@@ -233,6 +188,8 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     ui.labelRec = label;
 
 // battery
+   if(CONFIG_STATUSBAR_SHOWBATTERY)
+   {
     img = lv_img_create(cont);
     lv_img_set_src(img, Resource.GetImage("battery"));
     lv_obj_align(img, LV_ALIGN_RIGHT_MID, -30, 0);
@@ -254,6 +211,7 @@ static lv_obj_t* StatusBar_Create(lv_obj_t* par)
     lv_obj_align_to(label, ui.battery.img, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
     lv_label_set_text(label, "100%");
     ui.battery.label = label;
+   }
 
     StatusBar::SetStyle(StatusBar::STYLE_TRANSP);
 
@@ -286,20 +244,9 @@ void StatusBar::Init(lv_obj_t* par)
     StatusBar_Create(par);
 }
 
-/*
-ACCOUNT_INIT_DEF(StatusBar)
-{
-    account->Subscribe("Power");
-    account->Subscribe("Storage");
-    account->SetEventCallback(onEvent);
-
-    actStatusBar = account;
-}
-*/
-
 void StatusBar::Appear(bool en)
 {
-    int32_t start = -STATUS_BAR_HEIGHT;
+    int32_t start = -CONFIG_STATUS_BAR_HEIGHT;
     int32_t end = 0;
 
     if (!en)

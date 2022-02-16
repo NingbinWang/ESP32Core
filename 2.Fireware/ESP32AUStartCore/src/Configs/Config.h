@@ -37,10 +37,21 @@
 #define CONFIG_SCREEN_HOR_RES       240
 #define CONFIG_SCREEN_VER_RES       320
 #define CONFIG_SCREEN_BUFFER_SIZE   (CONFIG_SCREEN_HOR_RES * CONFIG_SCREEN_VER_RES /2)
-//Screen Statusbar height
-#define STATUS_BAR_HEIGHT               15
+
 //StartUp name config
 #define STARTUP_LABLE "TIANYA"
+#define CONFIG_STARTUP_MUSIC_PLAY       false
+
+//StatusBar
+//Screen Statusbar height
+#define CONFIG_STATUS_BAR_HEIGHT               15
+//Screen Statusbar flag
+#define CONFIG_STATUSBAR_SHOW_STATELLITE  false
+#define CONFIG_STATUSBAR_SHOW_SDCARD      false
+#define CONFIG_STATUSBAR_SHOW_BLUETOOTH      true
+#define CONFIG_STATUSBAR_SHOW_TIME       false
+#define CONFIG_STATUSBAR_SHOWBATTERY    true
+
 
 //bluetooth
 #define CONFIG_BLUETOOTH_NAME  "TIANYA"

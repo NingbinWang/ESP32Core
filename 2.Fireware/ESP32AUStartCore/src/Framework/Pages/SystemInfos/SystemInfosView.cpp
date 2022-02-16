@@ -118,7 +118,7 @@ void SystemInfosView::Group_Init()
 {
 	ui.group = lv_group_create();
 	//lv_group_set_focus_cb(ui.group, onFocus);
-	//lv_indev_set_group(lv_get_indev(LV_INDEV_TYPE_ENCODER), ui.group);
+    //lv_indev_set_group(lv_get_indev(LV_INDEV_TYPE_ENCODER), ui.group);
 
 	lv_group_add_obj(ui.group, ui.joints.icon);
 	lv_group_add_obj(ui.group, ui.pose6d.icon);

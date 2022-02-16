@@ -9,9 +9,9 @@
 #else
 #ifdef ARDUINO
 #include <Arduino.h>
-#  define DC_LOG_INFO(...)      do{Serial.printf("[Info] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
-#  define DC_LOG_WARN(...)      do{Serial.printf("[Warn] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
-#  define DC_LOG_ERROR(...)     do{Serial.printf("[Error] ");Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#  define DC_LOG_INFO(...)      do{Serial.printf("[Info][%s]",__func__);Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#  define DC_LOG_WARN(...)      do{Serial.printf("[Warn][%s]",__func__);Serial.printf(__VA_ARGS__);Serial.println();}while(0)
+#  define DC_LOG_ERROR(...)     do{Serial.printf("[Error][%s]",__func__);Serial.printf(__VA_ARGS__);Serial.println();}while(0)
 #else
 #  define DC_LOG_INFO(...)     
 #  define DC_LOG_WARN(...)
