@@ -29,6 +29,9 @@ namespace HAL
     bool BT_Init();
     void BT_Update();
     bool BluetoothConnected();
+    //Wlan
+    bool Wlan_Init();
+    void Wlan_Update();
 }
 
 

@@ -1,31 +1,26 @@
 #include "HAL/HAL.h"
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_HMC5883_U.h>
-
+#include "Configs/Config.h"
+#ifdef CONFIG_IMU_MPU9250
+#include "MPU9250.h"
+static MPU9250 mpu;
+#endif
+#ifdef CONFIG_IMU_MPU6050
+#include "Adafruit_MPU6050.h"
 static Adafruit_MPU6050 mpu;
-/* Assign a unique ID to this sensor at the same time */
-static Adafruit_HMC5883_Unified mag = Adafruit_HMC5883_Unified(12345);
+#endif
 
 static int mpu_enable = 1;
-static int mag_enable = 1;
-
-void displaySensorDetails(void)
-{
-  sensor_t sensor;
-  mag.getSensor(&sensor);
-  Serial.println("------------------------------------");
-  Serial.print  ("Sensor:       "); Serial.println(sensor.name);
-  Serial.print  ("Driver Ver:   "); Serial.println(sensor.version);
-  Serial.print  ("Unique ID:    "); Serial.println(sensor.sensor_id);
-  Serial.print  ("Max Value:    "); Serial.print(sensor.max_value); Serial.println(" uT");
-  Serial.print  ("Min Value:    "); Serial.print(sensor.min_value); Serial.println(" uT");
-  Serial.print  ("Resolution:   "); Serial.print(sensor.resolution); Serial.println(" uT");  
-  Serial.println("------------------------------------");
-  Serial.println("");
-}
 
 void HAL::IMU_Init()
 {
+#ifdef CONFIG_IMU_MPU9250
+// Try to initialize!
+  if (!mpu.setup(0x68)) {
+    Serial.println("MPU connection failedp");
+    mpu_enable = 0;
+  }
+#endif
+#ifdef CONFIG_IMU_MPU6050
 // Try to initialize!
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
@@ -89,23 +84,12 @@ void HAL::IMU_Init()
        break;
     }
   }
-  if(!mag.begin())
-  {
-    Serial.println("Ooops, no HMC5883 detected ... Check your wiring!");
-    mag_enable = 0;
-  }else{
-      displaySensorDetails();
-  }
-
-
+#endif
 }
-
 void HAL::IMU_Update()
 {
     IMU_Info_t imuInfo;
-     /* Get new sensor events with the readings */
-    sensors_event_t a, g, temp,ecompass;
-
+    
     if(mpu_enable == 0){
         //Serial.println("MPU6050 no found");
         imuInfo.ax = 0;
@@ -114,7 +98,34 @@ void HAL::IMU_Update()
         imuInfo.gx = 0;
         imuInfo.gy = 0;
         imuInfo.gz = 0;
-    }else{
+        imuInfo.mx = 0;
+        imuInfo.my = 0;
+        imuInfo.mz = 0;
+        imuInfo.roll = 0;
+        imuInfo.yaw = 0;
+        imuInfo.pitch = 0;
+    }else{ 
+     #ifdef CONFIG_IMU_MPU9250   
+       mpu.update();
+       imuInfo.ax = mpu.getAccX();
+       imuInfo.ay = mpu.getAccY();
+       imuInfo.az = mpu.getAccZ();
+       imuInfo.gx = mpu.getGyroX();
+       imuInfo.gy = mpu.getGyroY();
+       imuInfo.gz = mpu.getGyroZ();
+       imuInfo.mx = mpu.getMagX();
+       imuInfo.my = mpu.getMagY();
+       imuInfo.mz = mpu.getMagZ();
+       imuInfo.roll = mpu.getRoll();
+       imuInfo.yaw = mpu.getYaw();
+       imuInfo.pitch = mpu.getPitch();
+       //Serial.printf("Acceleration X:%f,Y:%f,Z:%f\n",imuInfo.ax,imuInfo.ay,imuInfo.az);
+       //Serial.printf("Rotation X:%f,Y:%f,Z:%f\n",imuInfo.gx,imuInfo.gy,imuInfo.gz);
+       //Serial.printf("mag X:%f,Y:%f,Z:%f\n",imuInfo.mx,imuInfo.my,imuInfo.mz);
+       //Serial.printf("roll:%f,yaw:%f,pitch:%f\n",imuInfo.roll,imuInfo.yaw,imuInfo.pitch);
+     #endif
+     #ifdef CONFIG_IMU_MPU6050
+       sensors_event_t a, g, temp;
        mpu.getEvent(&a, &g, &temp);
        imuInfo.ax = a.acceleration.x;
        imuInfo.ay = a.acceleration.y;
@@ -125,21 +136,14 @@ void HAL::IMU_Update()
        imuInfo.gz = g.gyro.z;
        Serial.printf("Rotation X:%f,Y:%f,Z:%f\n",imuInfo.gx,imuInfo.gy,imuInfo.gz);
        Serial.printf("Temperature:%f \n", temp.temperature);
-    }
-    if(mag_enable == 0){
-        Serial.println("HMC5883L no found");
-        imuInfo.mx = 0;
-        imuInfo.my = 0;
-        imuInfo.mz = 0;
-    }else{
-        //mag.getEvent(&ecompass);
-        imuInfo.mx = ecompass.magnetic.x;
-        imuInfo.my = ecompass.magnetic.y;
-        imuInfo.mz = ecompass.magnetic.z;
-        //Serial.printf("Ecompass X:%f,Y:%f,Z:%f\n",imuInfo.mx,imuInfo.my,imuInfo.mz);
-    }
-    imuInfo.roll = 0;
-    imuInfo.yaw = 0;
-    imuInfo.pitch = 0;
+       imuInfo.mx = 0;
+       imuInfo.my = 0;
+       imuInfo.mz = 0;
+       imuInfo.roll = 0;
+       imuInfo.yaw = 0;
+       imuInfo.pitch = 0;
+     #endif
 
+
+    }
 }

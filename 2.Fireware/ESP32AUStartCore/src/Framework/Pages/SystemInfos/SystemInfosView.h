@@ -24,8 +24,6 @@ public:
 
     struct
     {
-        item_t joints;
-        item_t pose6d;
         item_t system;
         item_t imu;
         item_t battery;
@@ -34,15 +32,6 @@ public:
     } ui;
 
 public:
-    void SetJoints(
-        const char* info
-    );
-    void SetPose6D(
-        const char* info
-    );
-    void SetIMU(
-        const char* info
-    );
     void SetBattery(
         int usage,
         float voltage,

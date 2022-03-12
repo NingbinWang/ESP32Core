@@ -57,6 +57,10 @@
 #define CONFIG_BLUETOOTH_NAME  "TIANYA"
 
 // IMU
+#define CONFIG_IMU_MPU9250
+#define CONFIG_IMU_BP280
+//#define CONFIG_IMU_MPU6050
+
 #define CONFIG_IMU_INT1_PIN         32
 #define CONFIG_IMU_INT2_PIN         33
 

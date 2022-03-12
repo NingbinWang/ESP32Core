@@ -23,35 +23,6 @@ void SystemInfosView::Create(lv_obj_t* root)
 
 	Style_Init();
 
-	/* Item Joints */
-	Item_Create(
-		&ui.joints,
-		root,
-		"Joints",
-		"joints",
-
-		"J1\n"
-		"J2\n"
-		"J3\n"
-		"J4\n"
-		"J5\n"
-		"J6\n"
-	);
-
-	Item_Create(
-		&ui.pose6d,
-		root,
-		"Pose6D",
-		"pose6d",
-
-		"X\n"
-		"Y\n"
-		"Z\n"
-		"A\n"
-		"B\n"
-		"C\n"
-	);
-
 	/* Item System */
 	Item_Create(
 		&ui.system,
@@ -65,25 +36,6 @@ void SystemInfosView::Create(lv_obj_t* root)
 		"SysTick\n"
 		"Compiler\n\n"
 		"Build\n"
-	);
-
-
-	/* Item IMU */
-	Item_Create(
-		&ui.imu,
-		root,
-		"IMU",
-		"gyroscope",
-
-		"Ax\n"
-		"Ay\n"
-		"Az\n"
-		"Gx\n"
-		"Gy\n"
-		"Gz\n"
-		"Mx\n"
-		"My\n"
-		"Mz"
 	);
 
 	/* Item Battery */
@@ -119,15 +71,9 @@ void SystemInfosView::Group_Init()
 	ui.group = lv_group_create();
 	//lv_group_set_focus_cb(ui.group, onFocus);
     //lv_indev_set_group(lv_get_indev(LV_INDEV_TYPE_ENCODER), ui.group);
-
-	lv_group_add_obj(ui.group, ui.joints.icon);
-	lv_group_add_obj(ui.group, ui.pose6d.icon);
 	lv_group_add_obj(ui.group, ui.system.icon);
-	lv_group_add_obj(ui.group, ui.imu.icon);
 	lv_group_add_obj(ui.group, ui.battery.icon);
 	lv_group_add_obj(ui.group, ui.storage.icon);
-
-	lv_group_focus_obj(ui.pose6d.icon);
 }
 
 void SystemInfosView::Delete()
@@ -265,34 +211,7 @@ void SystemInfosView::Item_Create(
 	lv_obj_set_height(icon, height);
 }
 
-void Page::SystemInfosView::SetJoints(const char* info)
-{
-	lv_label_set_text_fmt(
-		ui.joints.labelData,
-		"%s",
-		info
-	);
-}
 
-void Page::SystemInfosView::SetPose6D(const char* info)
-{
-	lv_label_set_text_fmt(
-		ui.pose6d.labelData,
-		"%s",
-		info
-	);
-}
-
-void SystemInfosView::SetIMU(
-	const char* info
-)
-{
-	lv_label_set_text_fmt(
-		ui.imu.labelData,
-		"%s",
-		info
-	);
-}
 
 void SystemInfosView::SetBattery(
 	int usage,

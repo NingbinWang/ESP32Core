@@ -91,7 +91,7 @@ class AdvertisedDeviceCallbacks : public NimBLEAdvertisedDeviceCallbacks
         if (advertisedDevice->isAdvertisingService(NimBLEUUID("0001")))
 //            if (advertisedDevice->getAddress() == NimBLEAddress("50:02:91:ac:b0:6a"))
         {
-            Serial.println("Found Dummy-Robot!");
+            Serial.println("Found robit!");
             NimBLEDevice::getScan()->stop();
             advDevice = advertisedDevice;
             doConnect = true;

@@ -1,3 +1,0 @@
-# ESP32StarCore
-该项目是基于ESPIDF的框架设计的，主要目的是为了学习ESPIDF的框架，用于对ESPIDF的API熟悉与设计。
-主要是想要实验自己的TFT_LCD框架的适配与调试

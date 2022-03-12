@@ -11,9 +11,6 @@ public:
     void Init();
     void Deinit();
 
-    void GetIMUInfo(
-        char* info, uint32_t len
-    );
 
     void GetBatteryInfo(
         int* usage,
@@ -24,14 +21,6 @@ public:
     void GetStorageInfo(
         bool* detect,
         char* size, uint32_t len
-    );
-
-    void GetJointsInfo(
-        char* data, uint32_t len
-    );
-
-    void GetPose6DInfo(
-        char* data, uint32_t len
     );
 
 };

@@ -24,12 +24,7 @@ void SystemInfos::onViewLoad()
 	Model.Init();
 	View.Create(root);
 	AttachEvent(root);
-	AttachEvent(View.ui.joints.icon);
-	AttachEvent(View.ui.pose6d.icon);
 	AttachEvent(View.ui.system.icon);
-	AttachEvent(View.ui.imu.icon);
-	AttachEvent(View.ui.battery.icon);
-	AttachEvent(View.ui.storage.icon);
 }
 
 void SystemInfos::onViewDidLoad()
@@ -79,18 +74,6 @@ void SystemInfos::AttachEvent(lv_obj_t* obj)
 void SystemInfos::Update()
 {
 	char buf[64];
-
-	// Joints 
-	//Model.GetJointsInfo(buf, sizeof(buf));
-	//View.SetJoints(buf);
-
-	// Pose6D 
-	//Model.GetPose6DInfo(buf, sizeof(buf));
-	//View.SetPose6D(buf);
-
-	// IMU
-	Model.GetIMUInfo(buf, sizeof(buf));
-	View.SetIMU(buf);
 
 	/* Power */
 	//int usage;
