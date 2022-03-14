@@ -1,6 +1,5 @@
 #include "Cortana.h"
 #include "Configs/Version.h"
-#include "Framework/Pages/StatusBar/StatusBar.h"
 #include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
 
 using namespace Page;

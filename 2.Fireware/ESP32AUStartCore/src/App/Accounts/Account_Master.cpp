@@ -10,5 +10,8 @@ NotifyBroker* AccountSystem::Broker()
 
 void Accounts_Init()
 {
-
+    //IMU Accounts
+   Notification* actIMU = new Notification("IMU", &dataCenter, sizeof(HAL::IMU_Info_t));
+   extern void _ACT_IMU_Init(Notification* account);
+   _ACT_IMU_Init(actIMU);
 }

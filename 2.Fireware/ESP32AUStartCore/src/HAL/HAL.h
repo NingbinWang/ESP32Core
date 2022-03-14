@@ -32,6 +32,25 @@ namespace HAL
     //Wlan
     bool Wlan_Init();
     void Wlan_Update();
+    // Power
+    void Power_Init();
+    void Power_HandleTimeUpdate();
+    void Power_SetAutoLowPowerTimeout(uint16_t sec);
+    uint16_t Power_GetAutoLowPowerTimeout();
+    void Power_SetAutoLowPowerEnable(bool en);
+    void Power_Shutdown();
+    void Power_Update();
+    void Power_EventMonitor();
+    void Power_GetInfo(Power_Info_t* info);
+    typedef void(* Power_CallbackFunction_t)(void);
+    void Power_SetEventCallback(Power_CallbackFunction_t callback);
+    //SD
+    bool SD_Init();
+    void SD_Update();
+    bool SD_GetReady();
+    float SD_GetCardSizeMB();
+    typedef void(* SD_CallbackFunction_t)(bool insert);
+    void SD_SetEventCallback(SD_CallbackFunction_t callback);
 }
 
 

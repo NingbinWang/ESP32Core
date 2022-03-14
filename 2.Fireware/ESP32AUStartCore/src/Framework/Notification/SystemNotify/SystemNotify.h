@@ -2,7 +2,7 @@
 #define _SYSTEMNOTIFY_H_
 
 #include "Framework/Notification/NotifyBroker.h"
-
+#include "Systeminfo_Def.h"
 
 void SystemNotify_Init(void);
 

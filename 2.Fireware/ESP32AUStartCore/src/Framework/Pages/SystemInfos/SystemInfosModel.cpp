@@ -28,12 +28,11 @@ void SystemInfosModel::GetBatteryInfo(
     char* state, uint32_t len
 )
 {
-    /*
     HAL::Power_Info_t power;
     account->Pull("Power", &power, sizeof(power));
     *usage = power.usage;
     *voltage = power.voltage / 1000.0f;
-    strncpy(state, power.isCharging ? "CHARGE" : "DISCHARGE", len);*/
+    strncpy(state, power.isCharging ? "CHARGE" : "DISCHARGE", len);
 }
 
 void SystemInfosModel::GetStorageInfo(
@@ -41,8 +40,7 @@ void SystemInfosModel::GetStorageInfo(
     char* usage, uint32_t len
 )
 {
-    /*
-    AccountSystem::Storage_Basic_Info_t info;
+    SystemInfoDef::Storage_Basic_Info_t info;
     account->Pull("Storage", &info, sizeof(info));
     *detect = info.isDetect;
     snprintf(
@@ -50,6 +48,5 @@ void SystemInfosModel::GetStorageInfo(
         "%0.1f GB",
         info.totalSizeMB / 1024.0f
     );
-    */
 }
 
