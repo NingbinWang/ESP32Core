@@ -14,9 +14,9 @@ void App_Notify_Init(void)
 
 void App_Init()
 {
-    //static AppFactory appfactory;
-    //static PageManager manager(&appfactory);
-    //manager.Install("Cortana", "Pages/Cortana");
+    static AppFactory appfactory;
+    static PageManager manager(&appfactory);
+    manager.Install("Cortana", "Pages/Cortana");
 }
 
 

@@ -7,8 +7,8 @@
 void setup() {
    HAL::Init();
    Port_Init();
+   App_Init();
    Framework_Init();
-  // App_Init();
    Framework_work();
 }
 

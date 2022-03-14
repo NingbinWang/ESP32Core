@@ -1,7 +1,8 @@
 #ifndef _SYSTEMINFOS_MODEL_H_
 #define _SYSTEMINFOS_MODEL_H_
 #include <stdint.h>
-
+#include "Framework/Notification/Notification.h"
+#include "Framework/Notification/SystemNotify/SystemNotify.h"
 namespace Page
 {
 
@@ -22,6 +23,9 @@ public:
         bool* detect,
         char* size, uint32_t len
     );
+
+    private:
+        Notification* account;
 
 };
 

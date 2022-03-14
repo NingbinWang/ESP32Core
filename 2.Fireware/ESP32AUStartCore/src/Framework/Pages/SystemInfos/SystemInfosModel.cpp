@@ -1,5 +1,4 @@
 #include "SystemInfosModel.h"
-#include "Framework/Notification/Notification.h"
 #include <stdio.h>
 #include "HAL/HAL.h"
 
@@ -7,20 +6,18 @@ using namespace Page;
 
 void SystemInfosModel::Init()
 {
-   // account = new Notification("SystemInfosModel", NotifyBroker::Center, 0, this);
-
-    //account->Subscribe("IMU");
-    //account->Subscribe("Power");
-    //account->Subscribe("Storage");
+    account = new Notification("SystemInfosModel", SystemNotify::Broker(), 0, this);
+    account->Subscribe("Power");
+    account->Subscribe("Storage");
 }
 
 void SystemInfosModel::Deinit()
 {
-    //if (account)
-    //{
-    //    delete account;
-    //    account = nullptr;
-    //}
+    if (account)
+    {
+        delete account;
+        account = nullptr;
+    }
 }
 
 
