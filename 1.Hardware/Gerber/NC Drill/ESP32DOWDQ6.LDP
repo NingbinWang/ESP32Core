@@ -1,3 +1,0 @@
-Layer Pairs Export File for PCB: E:\07github\esp32core\1.Hardware\ESP32D0WDQ6\ESP32Sample\ESP32DOWDQ6.PcbDoc
-LayersSetName=Top_Bot_Thru_Holes|DrillFile=esp32dowdq6-roundholes.txt|DrillLayers=gtl,gbl
-LayersSetName=Top_Bot_Slot_Holes|DrillFile=esp32dowdq6-slotholes.txt|DrillLayers=gtl,gbl
