@@ -40,3 +40,8 @@ void SYS_StatusBar_Init(Notification* account){
    account->SetEventCallback(onEvent);
    Sys_StatusBar= account;
 }
+
+Notification* get_SYS_StatusBar(void)
+{
+    return Sys_StatusBar;
+}

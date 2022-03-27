@@ -6,6 +6,7 @@
 #include "Framework/Utils/lv_ext/lv_obj_ext_func.h"
 #include "Framework/Notification/Notification.h"
 #include "Framework/Notification/SystemNotify/Systeminfo_Def.h"
+#include "Framework/Notification/SystemNotify/SystemNotify.h"
 
 #define BATT_USAGE_HEIGHT (lv_obj_get_style_height(ui.battery.img, 0) - 6)
 #define BATT_USAGE_WIDTH  (lv_obj_get_style_width(ui.battery.img, 0) - 4)
@@ -54,8 +55,8 @@ static void StatusBar_AnimCreate(lv_obj_t* contBatt)
 
 static void StatusBar_Update(lv_timer_t* timer)
 {
- 
-   // SystemInfoDef::Storage_Basic_Info_t sdInfo;
+    Notification* actStatusBar = get_SYS_StatusBar();
+    SystemInfoDef::Storage_Basic_Info_t sdInfo;
     //actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
     //sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
 

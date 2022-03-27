@@ -9,6 +9,8 @@
 
 具体可以看到这边主要设计了页面调度与消息框架，并分离出FrameWork层的工作空间与Application的设计，Framework层主要负责对于顶层StatusBar的更新，通过SystemNotify的功能通知，而该通知功能主要的数据传输功能又是来自PingPongBuffer。主要的页面管理是来自于PagesManger,而utils主要是做功能拓展的，比如将SD卡这种功能服务放在这里。
 
+主要目的是设计一个比较完善的机制用于数据传输与设计，为后面的项目做好相关的准备
+
 ## 页面管理
 
 主要是参考ios设计具体网址： [iosviewcontroller](https://developer.apple.com/documentation/uikit/uiviewcontroller)

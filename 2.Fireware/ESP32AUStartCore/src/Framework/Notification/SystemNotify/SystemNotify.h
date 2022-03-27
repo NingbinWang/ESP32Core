@@ -5,10 +5,9 @@
 #include "Systeminfo_Def.h"
 
 void SystemNotify_Init(void);
-
+Notification* get_SYS_StatusBar(void);
 namespace SystemNotify{
      NotifyBroker* Broker();
-
 }
 
 #endif
