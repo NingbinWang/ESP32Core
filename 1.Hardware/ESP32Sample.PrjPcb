@@ -112,7 +112,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=QZMXQFAL
 
 [Document5]
 DocumentPath=..\..\..\00ADlib\ADLib\SchLib\kinglib\mypcb.PcbLib
@@ -129,83 +129,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
-
-[GeneratedDocument1]
-DocumentPath=Gerber\NC Drill\ESP32DOWDQ6-RoundHoles.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Gerber\NC Drill\ESP32DOWDQ6-SlotHoles.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument3]
-DocumentPath=Gerber\NC Drill\ESP32DOWDQ6.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument4]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument5]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBL
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBO
-DItemRevisionGUID=
-
-[GeneratedDocument7]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument8]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GBS
-DItemRevisionGUID=
-
-[GeneratedDocument9]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GD1
-DItemRevisionGUID=
-
-[GeneratedDocument10]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GG1
-DItemRevisionGUID=
-
-[GeneratedDocument11]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GM1
-DItemRevisionGUID=
-
-[GeneratedDocument12]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTL
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTO
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Gerber\NC Drill\ESP32DOWDQ6.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.REP
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Gerber\Gerber\ESP32DOWDQ6.RUL
-DItemRevisionGUID=
-
-[GeneratedDocument19]
-DocumentPath=Gerber\Pick Place\Pick Place for ESP32DOWDQ6.csv
-DItemRevisionGUID=
+DocumentUniqueId=YQNVYTQN
 
 [Configuration1]
 Name=Sources
