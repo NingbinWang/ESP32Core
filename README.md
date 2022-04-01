@@ -31,7 +31,7 @@
 
 而这边的设计具体流程图如下：
 
-[](/4.Docs/1.Images/view.png)
+![](/4.Docs/1.Images/view.png)
 
 以代码中的SystemInfos为例：具体可以看SystemInfos.cpp
 
