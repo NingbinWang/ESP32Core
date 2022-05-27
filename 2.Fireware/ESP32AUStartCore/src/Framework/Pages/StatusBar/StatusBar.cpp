@@ -64,7 +64,7 @@ static void StatusBar_Update(lv_timer_t* timer)
 
     // battery 
     HAL::Power_Info_t power;
-   // actStatusBar->Pull("Power", &power, sizeof(power));
+   //6666666666666666666 actStatusBar->Pull("Power", &power, sizeof(power));
     lv_label_set_text_fmt(ui.battery.label, "%d", power.usage);
 
     bool Is_BattCharging = power.isCharging;
