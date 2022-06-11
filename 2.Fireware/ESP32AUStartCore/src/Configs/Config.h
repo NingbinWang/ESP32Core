@@ -3,7 +3,7 @@
 
 //Screen
 // Only define one driver, the other ones must be commented out
-#define ILI9341_DRIVER       // Generic driver for common displays
+//#define ILI9341_DRIVER       // Generic driver for common displays
 //#define ILI9341_2_DRIVER     // Alternative ILI9341 driver, see https://github.com/Bodmer/TFT_eSPI/issues/1172
 //#define ST7735_DRIVER      // Define additional parameters below for this display
 //#define ILI9163_DRIVER     // Define additional parameters below for this display
@@ -13,7 +13,7 @@
 //#define ILI9481_DRIVER
 //#define ILI9486_DRIVER
 //#define ILI9488_DRIVER     // WARNING: Do not connect ILI9488 display SDO to MISO if other devices share the SPI bus (TFT SDO does NOT tristate when CS is high)
-//#define ST7789_DRIVER      // Full configuration option, define additional parameters below for this display
+#define ST7789_DRIVER      // Full configuration option, define additional parameters below for this display
 //#define ST7789_2_DRIVER    // Minimal configuration option, define additional parameters below for this display
 //#define R61581_DRIVER
 //#define RM68140_DRIVER
@@ -26,16 +26,16 @@
 //#define GC9A01_DRIVER
 
 //Screen ESP32 setup
-#define CONFIG_SCREEN_CS_PIN        5
+#define CONFIG_SCREEN_CS_PIN        -1
 #define CONFIG_SCREEN_DC_PIN        2
 #define CONFIG_SCREEN_RST_PIN       4
 #define CONFIG_SCREEN_SCK_PIN       18
 #define CONFIG_SCREEN_MOSI_PIN      23
 #define CONFIG_SCREEN_BLK_PIN       12
-#define CONFIG_SCREEN_MISO_PIN      19
+#define CONFIG_SCREEN_MISO_PIN      -1
 
 #define CONFIG_SCREEN_HOR_RES       240
-#define CONFIG_SCREEN_VER_RES       320
+#define CONFIG_SCREEN_VER_RES       240
 #define CONFIG_SCREEN_BUFFER_SIZE   (CONFIG_SCREEN_HOR_RES * CONFIG_SCREEN_VER_RES /2)
 
 //StartUp name config
@@ -57,9 +57,9 @@
 #define CONFIG_BLUETOOTH_NAME  "TIANYA"
 
 // IMU
-#define CONFIG_IMU_MPU9250
-#define CONFIG_IMU_BP280
-//#define CONFIG_IMU_MPU6050
+//#define CONFIG_IMU_MPU9250
+//#define CONFIG_IMU_BP280
+#define CONFIG_IMU_MPU6050
 
 #define CONFIG_IMU_INT1_PIN         32
 #define CONFIG_IMU_INT2_PIN         33
@@ -71,9 +71,9 @@
 // SD CARD 
 #define CONFIG_SD_SPI               SPI_SD
 #define CONFIG_SD_CD_PIN            -1
-#define CONFIG_SD_MOSI_PIN          PB15
-#define CONFIG_SD_MISO_PIN          PB14
-#define CONFIG_SD_SCK_PIN           PB13
+#define CONFIG_SD_MOSI_PIN          13
+#define CONFIG_SD_MISO_PIN          26
+#define CONFIG_SD_SCK_PIN           14
 #define CONFIG_SD_CS_PIN            15
 #define CONFIG_SD_DET_PIN           22
 
