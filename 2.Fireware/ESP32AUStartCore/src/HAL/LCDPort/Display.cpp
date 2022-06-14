@@ -41,6 +41,6 @@ void Port_Init()
         configMAX_PRIORITIES - 1,
         &handleTaskLvgl);
     // 背光渐亮 
-    HAL::Backlight_ForceLit(1);//由于开发板上没有设计相关的电阻来分压，暂时使用常亮的方案 后续开启PWM需要在HAL中开启初始化
-    //HAL::Backlight_SetGradual(500, 1000);
+    //HAL::Backlight_ForceLit(1);//由于开发板上没有设计相关的电阻来分压，暂时使用常亮的方案 后续开启PWM需要在HAL中开启初始化
+    HAL::Backlight_SetGradual(500, 1000);
 }

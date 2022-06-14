@@ -82,7 +82,7 @@ void SystemInfos::Update()
 	//View.SetBattery(usage, voltage, buf);
 
 	// Storage 
-	/*
+	
 	bool detect;
 	Model.GetStorageInfo(&detect, buf, sizeof(buf));
 	View.SetStorage(
@@ -90,7 +90,7 @@ void SystemInfos::Update()
 		buf,
 		VERSION_FILESYSTEM
 	);
-    */
+   
 	//System 
 	View.SetSystem(
 		VERSION_FIRMWARE_NAME " " VERSION_SOFTWARE,

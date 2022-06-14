@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "esp_timer.h": "c",
+        "time.h": "c"
+    }
+}

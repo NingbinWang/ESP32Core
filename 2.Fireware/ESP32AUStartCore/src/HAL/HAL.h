@@ -51,6 +51,12 @@ namespace HAL
     float SD_GetCardSizeMB();
     typedef void(* SD_CallbackFunction_t)(bool insert);
     void SD_SetEventCallback(SD_CallbackFunction_t callback);
+    // Encoder 
+    void Encoder_Init();
+    void Encoder_Update();
+    int16_t Encoder_GetDiff();
+    bool Encoder_GetIsPush();
+    void Encoder_SetEnable(bool en);
 }
 
 

@@ -87,9 +87,9 @@
 #define CONFIG_SOUND_ENABLE_DEFAULT false
 
 // Encoder 
-#define CONFIG_ENCODER_B_PIN        34
-#define CONFIG_ENCODER_A_PIN        35
-#define CONFIG_ENCODER_PUSH_PIN     27
+#define CONFIG_ENCODER_B_PIN        19
+#define CONFIG_ENCODER_A_PIN        21
+#define CONFIG_ENCODER_PUSH_PIN     5
 
 // Power
 #define CONFIG_POWER_EN_PIN         21

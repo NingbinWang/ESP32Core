@@ -27,7 +27,9 @@ void HAL::Init()
     //蓝牙初始化
    HAL::BT_Init();
     //背光ADC初始化
-   // HAL::Backlight_Init();
+    HAL::Backlight_Init();
+    //SD卡init
+    HAL::SD_Init();
    //Wlan的初始化 注意蓝牙与wifi不能共存
   //  HAL::Wlan_Init();
 }
