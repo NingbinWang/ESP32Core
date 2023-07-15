@@ -41,8 +41,8 @@ typedef struct
 
 #define STORAGE_VALUE_REG(act, data, dataType)\
 do{\
-    AccountSystem::Storage_Info_t info; \
-    info.cmd = AccountSystem::STORAGE_CMD_ADD; \
+    SystemInfoDef::Storage_Info_t info; \
+    info.cmd = SystemInfoDef::STORAGE_CMD_ADD; \
     info.key = #data; \
     info.value = &data; \
     info.size = sizeof(data); \

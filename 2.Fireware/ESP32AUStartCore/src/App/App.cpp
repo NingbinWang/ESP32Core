@@ -16,11 +16,13 @@ void App_Init()
     Resource.Init();
       /*----------------------- Pages Init -----------------------*/
     StatusBar::Init(lv_layer_top());
-    manager.Install("SystemInfos", "Pages/SystemInfos");
+
+    //manager.Install("SystemInfos", "Pages/SystemInfos");
     manager.Install("Startup", "Pages/Startup");
     manager.SetGlobalLoadAnimType(PageManager::LOAD_ANIM_OVER_TOP, 500);
     manager.Push("Pages/Startup");
 
+    //SYSTEM_SEND_NOTIFY_CMD(Storage, STORAGE_CMD_LOAD);
     INIT_DONE(); 
 }
 

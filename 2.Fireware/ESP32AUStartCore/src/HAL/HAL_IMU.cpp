@@ -130,12 +130,12 @@ void HAL::IMU_Update()
        imuInfo.ax = a.acceleration.x;
        imuInfo.ay = a.acceleration.y;
        imuInfo.az = a.acceleration.z;
-       Serial.printf("Acceleration X:%f,Y:%f,Z:%f\n",imuInfo.ax,imuInfo.ay,imuInfo.az);
+      // Serial.printf("Acceleration X:%f,Y:%f,Z:%f\n",imuInfo.ax,imuInfo.ay,imuInfo.az);
        imuInfo.gx = g.gyro.x;
        imuInfo.gy = g.gyro.y;
        imuInfo.gz = g.gyro.z;
-       Serial.printf("Rotation X:%f,Y:%f,Z:%f\n",imuInfo.gx,imuInfo.gy,imuInfo.gz);
-       Serial.printf("Temperature:%f \n", temp.temperature);
+       //Serial.printf("Rotation X:%f,Y:%f,Z:%f\n",imuInfo.gx,imuInfo.gy,imuInfo.gz);
+       //Serial.printf("Temperature:%f \n", temp.temperature);
        imuInfo.mx = 0;
        imuInfo.my = 0;
        imuInfo.mz = 0;
