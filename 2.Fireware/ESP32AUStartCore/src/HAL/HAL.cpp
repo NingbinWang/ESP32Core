@@ -25,20 +25,20 @@ void HAL::Init()
     //IMU初始化
     HAL::IMU_Init();
     //蓝牙初始化
-   HAL::BT_Init();
+   //HAL::BT_Init();
     //背光ADC初始化
     HAL::Backlight_Init();
     //SD卡init
     HAL::SD_Init();
    //Wlan的初始化 注意蓝牙与wifi不能共存
-  //  HAL::Wlan_Init();
+   HAL::Wlan_Init();
 }
 void HAL::Update()
 {
    // lv_timer_handler();
   //  Serial.println("lvgl alive");
     HAL::IMU_Update();
-   HAL::BT_Update();
- //  HAL::Wlan_Update();
+  //  HAL::BT_Update();
+   HAL::Wlan_Update();
     delay(1000);
 }
