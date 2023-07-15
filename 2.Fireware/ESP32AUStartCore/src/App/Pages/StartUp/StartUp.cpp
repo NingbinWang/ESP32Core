@@ -20,7 +20,7 @@ void Startup::onCustomAttrConfig()
 void Startup::onViewLoad()
 {
     Model.Init();
-    //Model.SetEncoderEnable(false);
+    Model.SetEncoderEnable(false);
     View.Create(root);
     lv_timer_t* timer = lv_timer_create(onTimer, 2000, this);
     lv_timer_set_repeat_count(timer, 1);
@@ -62,5 +62,5 @@ void Startup::onViewDidUnload()
 void Startup::onTimer(lv_timer_t* timer)
 {
     Startup* instance = (Startup*)timer->user_data;
-    instance->Manager->Push("Pages/SystemInfos");
+    instance->Manager->Push("Pages/Template");
 }

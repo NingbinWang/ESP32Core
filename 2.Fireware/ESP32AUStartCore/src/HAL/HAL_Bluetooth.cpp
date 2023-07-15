@@ -1,3 +1,4 @@
+#if 0
 #include "HAL/HAL.h"
 #include "NimBLEDevice.h"
 #include "Configs/Config.h"
@@ -283,3 +284,5 @@ bool HAL::BluetoothConnected()
 {
     return isConnected;
 }
+
+#endif

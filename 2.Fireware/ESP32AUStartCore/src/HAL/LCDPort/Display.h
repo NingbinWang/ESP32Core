@@ -11,6 +11,8 @@
 typedef TFT_eSPI SCREEN_CLASS;
 void Port_Init();
 void lv_port_disp_init(SCREEN_CLASS* scr);
+void lv_fs_if_init();
+void lv_port_indev_init();
 
 extern TaskHandle_t handleTaskLvgl;
 

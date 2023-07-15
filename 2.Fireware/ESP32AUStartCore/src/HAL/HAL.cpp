@@ -20,25 +20,29 @@ void HAL::Init()
     lv_disp_buf_p = static_cast<lv_color_t*>(malloc(DISP_BUF_SIZE * sizeof(lv_color_t)));
     if (lv_disp_buf_p == nullptr)
         LV_LOG_WARN("lv_port_disp_init malloc failed!\n");
+    //电源管理
+    HAL::Power_Init();
+       //背光ADC初始化
+    HAL::Backlight_Init();
+    //编码器初始化
+    HAL::Encoder_Init();
+    //SD卡初始化
+    HAL::SD_Init();
     //I2C扫描
     HAL::I2C_Init(true);
     //IMU初始化
     HAL::IMU_Init();
     //蓝牙初始化
    //HAL::BT_Init();
-    //背光ADC初始化
-    HAL::Backlight_Init();
-    //SD卡init
-    HAL::SD_Init();
    //Wlan的初始化 注意蓝牙与wifi不能共存
-   HAL::Wlan_Init();
+   //HAL::Wlan_Init();
 }
 void HAL::Update()
 {
-   // lv_timer_handler();
-  //  Serial.println("lvgl alive");
-    HAL::IMU_Update();
+   HAL::Power_Update();
+   HAL::Encoder_Update();
+   HAL::IMU_Update();
   //  HAL::BT_Update();
-   HAL::Wlan_Update();
-    delay(1000);
+   //HAL::Wlan_Update();
+   //__IntervalExecute(HAL::SD_Update(),500);
 }

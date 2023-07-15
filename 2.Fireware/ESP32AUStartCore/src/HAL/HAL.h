@@ -2,6 +2,8 @@
 #define _HAL_H_
 #include <stdint.h>
 #include "Configs/Config.h"
+#include "CommonMacro.h"
+#include "freertos/FreeRTOS.h"
 #ifdef ARDUINO
 #include <Arduino.h>
 #include "lvgl.h"
@@ -26,9 +28,9 @@ namespace HAL
     void IMU_Init();
     void IMU_Update();
     // Bluetooth
-    bool BT_Init();
-    void BT_Update();
-    bool BluetoothConnected();
+   // bool BT_Init();
+   // void BT_Update();
+   // bool BluetoothConnected();
     //Wlan
     bool Wlan_Init();
     void Wlan_Update();

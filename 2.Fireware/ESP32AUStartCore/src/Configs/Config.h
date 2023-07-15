@@ -94,5 +94,21 @@
 // Power
 #define CONFIG_POWER_EN_PIN         21
 
+#define CONFIG_SYSTEM_SAVE_FILE_PATH          "S:/SystemSave.json"
+#define CONFIG_SYSTEM_LANGUAGE_DEFAULT        {'e','n','-','G','B'}
+#define CONFIG_SYSTEM_GMT_OFFSET_DEFAULT      8 // GMT+ 8
+
+
+
+#define CONFIG_GPS_REFR_PERIOD                1000 // ms
+#define CONFIG_GPS_LNG_DEFAULT                116.391332
+#define CONFIG_GPS_LAT_DEFAULT                39.907415
+
+#define CONFIG_MAP_USE_WGS84_DEFAULT          false
+
+#define CONFIG_MAP_DIR_PATH                   {'/','M','A','P'}//"/MAP"
+
+
+#define CONFIG_ARROW_THEME_DEFAULT            "default"
 
 #endif 

@@ -44,7 +44,7 @@ void HAL::Power_Init()
     uint64_t time = millis();
     while (millis() - time < 1000)
     {
-        HAL::BT_Update();
+        //HAL::BT_Update();
         delay(100);
     }
     digitalWrite(CONFIG_POWER_EN_PIN, HIGH);

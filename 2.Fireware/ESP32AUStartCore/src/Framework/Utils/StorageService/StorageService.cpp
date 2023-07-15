@@ -6,7 +6,6 @@
 #include "lvgl/lvgl.h"
 #endif
 #include <algorithm>
-
 #define JSON_BUFFER_SIZE 1024
 
 #define VALUE_TO_DOC(type)\
@@ -186,4 +185,71 @@ bool StorageService::LoadFile()
     }
 
     return true;
+}
+
+bool StorageService::SaveFile()
+{
+    // Open file for writing
+    FileWrapper file(FilePath, LV_FS_MODE_WR | LV_FS_MODE_RD);
+    if (!file)
+    {
+        LV_LOG_USER("Failed to open file");
+        return false;
+    }
+
+    // Allocate a temporary JsonDocument
+    // Don't forget to change the capacity to match your requirements.
+    // Use https://arduinojson.org/assistant to compute the capacity.
+    StaticJsonDocument<JSON_BUFFER_SIZE> doc;
+
+    // Set the values in the document
+    for (auto iter : NodePool)
+    {
+        switch (iter->type)
+        {
+        case TYPE_INT:
+        {
+            VALUE_TO_DOC(int);
+            break;
+        }
+        case TYPE_FLOAT:
+        {
+            VALUE_TO_DOC(float);
+            break;
+        }
+        case TYPE_DOUBLE:
+        {
+            VALUE_TO_DOC(double);
+            break;
+        }
+        case TYPE_STRING:
+        {
+            doc[iter->key] = (const char*)iter->value;
+            break;
+        }
+        default:
+            break;
+        }
+    }
+
+    // Serialize JSON to file
+    if (serializeJsonPretty(doc, file) == 0)
+    {
+        LV_LOG_USER("Failed to write to file");
+        return false;
+    }
+
+    return true;
+}
+
+StorageService::Node_t* StorageService::SearchNode(const char* key)
+{
+    for (auto iter : NodePool)
+    {
+        if (strcmp(key, iter->key) == 0)
+        {
+            return iter;
+        }
+    }
+    return nullptr;
 }

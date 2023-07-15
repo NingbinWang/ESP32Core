@@ -39,6 +39,8 @@ typedef struct
     Storage_Type_t type;
 } Storage_Info_t;
 
+
+
 #define STORAGE_VALUE_REG(act, data, dataType)\
 do{\
     SystemInfoDef::Storage_Info_t info; \

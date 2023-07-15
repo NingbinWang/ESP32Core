@@ -11,7 +11,43 @@
 #define BATT_USAGE_HEIGHT (lv_obj_get_style_height(ui.battery.img, 0) - 6)
 #define BATT_USAGE_WIDTH  (lv_obj_get_style_width(ui.battery.img, 0) - 4)
 
+#define STATUS_BAR_HEIGHT 22
+
+static Notification* actStatusBar;
+
 static void StatusBar_AnimCreate(lv_obj_t* contBatt);
+
+static int onEvent(Notification* account, Notification::EventParam_t* param)
+{
+    if (param->event != Notification::EVENT_NOTIFY)
+    {
+        return Notification::ERROR_UNSUPPORTED_REQUEST;
+    }
+
+    if (param->size != sizeof(SystemInfoDef::StatusBar_Info_t))
+    {
+        return Notification::ERROR_SIZE_MISMATCH;
+    }
+
+    SystemInfoDef::StatusBar_Info_t* info = (SystemInfoDef::StatusBar_Info_t*)param->data_p;
+
+    if (info->showLabelRec)
+    {
+        lv_obj_clear_flag(ui.labelRec, LV_OBJ_FLAG_HIDDEN);
+        const char* str = info->labelRecStr;
+
+        if (str)
+        {
+            lv_label_set_text(ui.labelRec, str);
+        }
+    }
+    else
+    {
+        lv_obj_add_flag(ui.labelRec, LV_OBJ_FLAG_HIDDEN);
+    }
+
+    return 0;
+}
 
 static void StatusBar_ConBattSetOpa(lv_obj_t* obj, int32_t opa)
 {
@@ -56,14 +92,14 @@ static void StatusBar_AnimCreate(lv_obj_t* contBatt)
 static void StatusBar_Update(lv_timer_t* timer)
 {
     SystemInfoDef::Storage_Basic_Info_t sdInfo;
-    //actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
-    //sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
+    actStatusBar->Pull("Storage", &sdInfo, sizeof(sdInfo));
+    sdInfo.isDetect ? lv_obj_clear_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgSD, LV_OBJ_FLAG_HIDDEN);
 
-    HAL::BluetoothConnected() ? lv_obj_clear_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN);
+   // HAL::BluetoothConnected() ? lv_obj_clear_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN) : lv_obj_add_flag(ui.imgBT, LV_OBJ_FLAG_HIDDEN);
 
     // battery 
     HAL::Power_Info_t power;
-   // actStatusBar->Pull("Power", &power, sizeof(power));
+    actStatusBar->Pull("Power", &power, sizeof(power));
     lv_label_set_text_fmt(ui.battery.label, "%d", power.usage);
 
     bool Is_BattCharging = power.isCharging;
@@ -266,4 +302,13 @@ void StatusBar::Appear(bool en)
     lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
     lv_anim_set_early_apply(&a, true);
     lv_anim_start(&a);
+}
+
+void SYS_StatusBar_Init(Notification* account)
+{
+    account->Subscribe("Power");
+    account->Subscribe("Storage");
+    account->SetEventCallback(onEvent);
+
+    actStatusBar = account;
 }

@@ -1,6 +1,8 @@
 #include "HAL/HAL.h"
 #include "Configs/Config.h"
 #include "Framework/Utils/ButtonEvent/ButtonEvent.h"
+#include "Framework/Notification/Notification.h"
+#include "App/Notify/NotifyCenter.h"
 
 static ButtonEvent EncoderPush(5000);
 
@@ -8,6 +10,7 @@ static bool EncoderEnable = true;
 static volatile int16_t EncoderDiff = 0;
 static bool EncoderDiffDisable = false;
 
+Notification* actEncoder;
 
 static void Encoder_IrqHandler()
 {
@@ -64,8 +67,8 @@ static void Encoder_RotateHandler(int16_t diff)
 {
    // HAL::Buzz_Tone(300, 5);
 
-   // actEncoder->Commit((const void*) &diff, sizeof(int16_t));
-   // actEncoder->Publish();
+    actEncoder->Commit((const void*) &diff, sizeof(int16_t));
+    actEncoder->Publish();
 }
 
 void HAL::Encoder_Init()
@@ -79,7 +82,7 @@ void HAL::Encoder_Init()
     EncoderPush.EventAttach(Encoder_PushHandler);
 
 
-   // actEncoder = new Account("Encoder", AccountSystem::Broker(), sizeof(int16_t), nullptr);
+    actEncoder = new Notification("Encoder", NotifyCenter::Broker(), sizeof(int16_t), nullptr);
 
 }
 

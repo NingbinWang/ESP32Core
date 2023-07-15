@@ -29,6 +29,8 @@ void Port_Init()
     // lvgl初始化
     lv_init();
     lv_port_disp_init(&screen);
+    lv_port_indev_init();
+    lv_fs_if_init();
     String LVGL_Arduino = "I am LVGL_Arduino ";
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println( LVGL_Arduino );
