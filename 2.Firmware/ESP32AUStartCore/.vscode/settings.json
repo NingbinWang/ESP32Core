@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "esp_timer.h": "c",
+        "time.h": "c"
+    },
+    "cmake.sourceDirectory": "E:/06github/ESP32Core/2.Fireware/ESP32AUStartCore/lib/Adafruit_BusIO-1.11.0"
+}
